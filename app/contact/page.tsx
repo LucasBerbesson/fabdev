@@ -38,7 +38,7 @@ export default function Form() {
         }
 
         try {
-            const response = await fetch(`${nextConfig.apiUrl}/contact/`, {
+            const response = await fetch(`https://fabdev.fr/contact/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

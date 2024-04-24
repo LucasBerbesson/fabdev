@@ -12,13 +12,13 @@ import Head from "next/head";
 
 const getDataCases = async () => {
     const res = await fetch(
-        `${nextConfig.apiUrl}/api/cases/`
+        `https://fabdev.fr/api/cases/`
     )
     return res.json()
 }
 const getDataArticles = async () => {
     const res = await fetch(
-        `${nextConfig.apiUrl}/api/articles/`
+        `https://fabdev.fr/api/articles/`
     )
     return res.json()
 }
