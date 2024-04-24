@@ -107,10 +107,9 @@ export const Header = () => {
                 <span className="text-fabdev">Fabdev</span><br/>
                 Développe vos applications web, data & IA
             </h1>
-            <p className="max-w-2xl text-lg md:text-xl mt-8 dark:text-neutral-200">
-                Notre méthode de travail et notre expérience nous permettent de livrer
-                des outils en moyenne 4 fois plus vite que nos concurrents. br
-                (Et accessoirement, à des prix compétitifs...)
+            <p className="max-w-3xl text-lg md:text-xl mt-8 dark:text-neutral-200">
+                Devenez le chouchou de votre manager en nous confiant votre projet de développement, de dashboard, de plateforme, d'API, d'IA générative, de dataviz, de machine learning et encore bien d’autres défis.
+
             </p>
         </div>
     );
@@ -150,6 +149,7 @@ export const ProductCard = ({
                     alt={product.title}
                 />
             </Link>
+
             <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black dark:bg-gray-200 dark:group-hover/product:opacity-80  pointer-events-none"></div>
             <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white dark:text-black font-weight-bold">
                 {product.title}

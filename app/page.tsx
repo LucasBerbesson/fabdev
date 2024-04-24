@@ -125,15 +125,14 @@ const Card: React.FC<CardProps> = ({title, content, nom, role}) => {
                                 expanded ? 'transform -rotate-180' : ''
                             }`}
                         >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                            />
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
+                        />
                         </svg>
                     </div>
                 </div>
-
                 <Meteors number={20}/>
             </div>
         </div>
@@ -176,6 +175,10 @@ export default function Home() {
         <div className="pt-20 overflow-x-hidden">
             <HeroParallax products={products}/>
             <div className="flex flex-col justify-items-center items-center">
+                <p className="max-w-[50%] text-xl md:text-xl mt-8 dark:text-neutral-200 text-center mb-20">
+                    Notre méthode de travail et notre expérience nous permettent de livrer
+                    des outils en moyenne 4 fois plus vite que nos concurrents (et accessoirement, à des prix compétitifs...)
+                </p>
                 <Link href="/cases/" className="mb-20">
                     <Button
                         borderRadius="1.75rem"
@@ -199,7 +202,7 @@ export default function Home() {
                 <div className={"sm:mx-64 text-center my-10"}>
                     {Array.from(allServices).map((cas: string) => (
                         <Link href={"/cases/?tag=" + cas} key={cas}
-                              className={"border-black border-2 inline-block border-opacity-10 px-3 py-2 rounded-3xl bg-gray-200 bg-opacity-50 me-3 mb-2 cursor-pointer dark:bg-opacity-10 dark:border-gray-200 dark:border-opacity-20"}
+                            className={"border-black border-2 inline-block border-opacity-10 px-3 py-2 rounded-3xl bg-gray-200 bg-opacity-50 me-3 mb-2 cursor-pointer dark:bg-opacity-10 dark:border-gray-200 dark:border-opacity-20"}
                         >{cas}</Link>
                     ))}
                 </div>
@@ -209,7 +212,6 @@ export default function Home() {
                         <Card key={index} title={card.title} content={card.content} nom={card.nom} role={card.role}/>
                     ))}
                 </div>
-
             </div>
         </div>
     )

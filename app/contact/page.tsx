@@ -84,15 +84,15 @@ export default function Form() {
                 <form className="my-8" onSubmit={handleSubmit}>
                     <LabelInputContainer className="mb-7">
                         <Label htmlFor="name">Quel est votre nom ?</Label>
-                        <Input required placeholder="Pierre Richard" id="name" type="text" name="name"/>
+                        <Input required placeholder="" id="name" type="text" name="name"/>
                     </LabelInputContainer>
                     <LabelInputContainer className="mb-7">
                         <Label htmlFor="company">Pour quelle société travaillez-vous ?</Label>
-                        <Input required id="company" placeholder="RTE" type="text" name="company"/>
+                        <Input required id="company" placeholder="" type="text" name="company"/>
                     </LabelInputContainer>
                     <LabelInputContainer className="mb-7">
                         <Label htmlFor="project">Décrivez votre projet en une ligne</Label>
-                        <Input required id="project" placeholder="Outil de gestion de risques" type="text" name="project"/>
+                        <Input required id="project" placeholder="" type="text" name="project"/>
                     </LabelInputContainer>
                     <LabelInputContainer className="mb-7">
                         <Label htmlFor="budgets">Quel est le budget pour votre projet ?</Label>
@@ -124,7 +124,7 @@ export default function Form() {
                     </LabelInputContainer>
                     <LabelInputContainer className="mb-7">
                         <Label htmlFor="email">Adresse mail</Label>
-                        <Input id="email" required name="email" placeholder="projectmayhem@fc.com" type="email"/>
+                        <Input id="email" required name="email" placeholder="" type="email"/>
                     </LabelInputContainer>
 
                     <input className="hidden" id="" type="text" value={timer} name="reason" ref={hiddenRef}/>
