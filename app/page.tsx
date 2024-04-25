@@ -220,7 +220,7 @@ export default function Home() {
                             <Link href="/cases/" className="">
                                 <Button
                                     borderRadius="1.75rem"
-                                    className="bg-white dark:bg-fabdev text-black  text-lg "
+                                    className="bg-fabdev text-black text-lg "
                                 >
                                     Voir tous nos projets
                                 </Button>
