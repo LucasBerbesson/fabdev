@@ -81,7 +81,7 @@ export default function CasesList() {
                          onClick={() => selectTag(cas)}>{cas}</div>
                 ))}
             </div>
-            <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 dark:text-white gap-5 sm:px-10">
+            <motion.div layout className="grid grid-cols-1 lg:grid-cols-6 dark:text-white gap-5 sm:px-10">
                 <AnimatePresence>
                     {filtered.map((cas, index) => (
                         <React.Fragment key={cas.id}>
@@ -118,10 +118,10 @@ export default function CasesList() {
                                     </CardBody>
                                 </CardContainer>
                             </motion.a>
-                            <Link className={index % 16 == 10 ? "block col-span-6 " : "hidden"} href="/contact">
+                            <Link className={index % 16 == 10 ? "block lg:col-span-6 " : "hidden"} href="/contact">
                                 <GlowingStarsBackgroundCard>
-                                    <div className="font-bold text-white text-3xl backdrop-blur-sm">Construisons ensemble votre prochain succès</div>
-                                    <div className="text-xl bg-white text-black p-2 px-6 rounded-2xl flex flex-row items-center ">
+                                    <div className="font-bold text-white text-center mt-3 lg:mt-0 lg:text-left text-xl lg:text-3xl backdrop-blur-sm">Construisons ensemble votre prochain succès</div>
+                                    <div className="text-xl bg-white text-black mb-3 lg:mb-0 p-2 px-6 rounded-2xl flex flex-row items-center ">
                                         <div className="me-2">Contact</div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                              fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"

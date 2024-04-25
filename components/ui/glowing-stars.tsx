@@ -29,7 +29,7 @@ export const GlowingStarsBackgroundCard = ({
       <div className="flex justify-center items-center">
         <Illustration mouseEnter={mouseEnter} />
       </div>
-      <div className="absolute top-0 left-0 h-full w-full flex flex-row items-center justify-between z-20 px-10">{children}</div>
+      <div className="absolute top-0 left-0 h-full w-full flex flex-col lg:flex-row items-center justify-between z-20 px-10">{children}</div>
     </div>
   );
 };
