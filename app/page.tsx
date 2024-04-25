@@ -194,20 +194,42 @@ export default function Home() {
     }
     return (
         <div className="pt-20 overflow-x-hidden">
-                <HeroParallax products={products}/>
-            <div className="flex flex-col justify-items-center items-center">
-                <p className="max-w-[50%] text-xl md:text-xl mt-8 dark:text-neutral-200 text-center mb-20">
-                    Notre méthode de travail et notre expérience nous permettent de livrer
-                    des outils en moyenne 4 fois plus vite que nos concurrents (et accessoirement, à des prix compétitifs...)
-                </p>
-                <Link href="/cases/" className="mb-20">
-                    <Button
-                        borderRadius="1.75rem"
-                        className="bg-white dark:bg-black text-black dark:text-white text-lg"
+            <HeroParallax products={products}/>
+            <div className="flex flex-col justify-items-center items-center mt-20">
+
+                <LampContainer>
+                    <motion.h1
+                        initial={{opacity: 0.5, y: -120}}
+                        whileInView={{opacity: 1, y: -140}}
+                        transition={{
+                            delay: 0.3,
+                            duration: 0.8,
+                            ease: "easeInOut",
+                        }}
+                        className="mt-8 bg-gradient-to-br from-slate-400 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
                     >
-                        Voir tous nos projets
-                    </Button>
-                </Link>
+                        On peut tout faire.
+                        <br/>Vite et bien
+                    </motion.h1>
+                    <div className="w-full mt-16 absolute">
+                        <div className="flex flex-col items-center">
+                            <p className="max-w-full text-xl md:text-xl my-10 dark:text-slate-300 text-center">
+                                Notre méthode de travail et notre expérience nous permettent de livrer
+                                des outils en moyenne 4 fois plus vite que nos concurrents (et accessoirement, à des prix compétitifs...)
+                            </p>
+                            <Link href="/cases/" className="">
+                                <Button
+                                    borderRadius="1.75rem"
+                                    className="bg-white dark:bg-fabdev text-black  text-lg "
+                                >
+                                    Voir tous nos projets
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
+                </LampContainer>
+
+                <div className="mb-10"></div>
                 <Fondateurs></Fondateurs>
                 <div className=" rounded-md flex flex-col bg-opacity-60 antialiased bg-gray-50 dark:bg-gray-800 dark:bg-opacity-60 items-center justify-center relative overflow-hidden mt-24 mb-24">
                     <InfiniteMovingCards
@@ -223,7 +245,7 @@ export default function Home() {
                 <div className={"sm:mx-64 text-center my-10 max-w-screen-xl"}>
                     {Array.from(allServices).map((cas: string) => (
                         <Link href={"/cases/?tag=" + cas} key={cas}
-                            className={"border-black border-2 inline-block border-opacity-10 px-3 py-2 rounded-3xl bg-gray-200 bg-opacity-50 me-3 mb-2 cursor-pointer dark:bg-opacity-10 dark:border-gray-200 dark:border-opacity-20"}
+                              className={"border-black border-2 inline-block border-opacity-10 px-3 py-2 rounded-3xl bg-gray-200 bg-opacity-50 me-3 mb-2 cursor-pointer dark:bg-opacity-10 dark:border-gray-200 dark:border-opacity-20"}
                         >{cas}</Link>
                     ))}
                 </div>
