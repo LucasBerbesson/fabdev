@@ -1,5 +1,5 @@
 export async function GET() {
-    const res = await fetch(`https://fabdev.fr/api/cases/`, {
+    const res = await fetch(`https://backoffice.fabdev.fr/api/cases/`, {
         headers: {
             'Content-Type': 'application/json',
         },

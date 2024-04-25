@@ -2,7 +2,7 @@
 const nextConfig = {
 // image from fabdev.fr
     images: {
-        domains: ['fabdev.fr'],
+        domains: ['backoffice.fabdev.fr'],
     },
 };
 

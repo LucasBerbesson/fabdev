@@ -28,7 +28,7 @@ export default function Home({params}: { params: { id: number } }) {
                 const regex = /src=["']([^"']*)["'][^>]*>/g;
                 firstArticle.content = firstArticle.content.replace(regex, (match: string, src: string) => {
                     if (!src.startsWith('https://')) {
-                        src = `https://fabdev.fr/${src}`;
+                        src = `https://backoffice.fabdev.fr/${src}`;
                     }
                     return match.replace(/src=["'][^"']*["']/, `src="${src}"`);
                 });

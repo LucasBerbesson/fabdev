@@ -42,7 +42,7 @@ export default function Page() {
                 <Link href={"/articles/" + article.id} key={article.id} className="flex flex-col gap-5 sm:flex-row sm:w-9/12 my-5 cursor-pointer">
                     <div className="sm:w-4/12">
                         <Image
-                            src={"https://fabdev.fr" + article.picture}
+                            src={"https://backoffice.fabdev.fr" + article.picture}
                             height="600"
                             width="600"
                             className=" w-full rounded-xl group-hover/card:shadow-xl"

@@ -14,7 +14,7 @@ const inter = Inter({subsets: ["latin"]});
 export const metadata: Metadata = {
     title: "Fabdev",
     description: "Fabdev développe vos applications web, data & IA",
-    icons: ["https://fabdev.fr/static/img/favicon.png"]
+    icons: ["https://backoffice.fabdev.fr/static/img/favicon.png"]
 };
 
 export default async function RootLayout({
