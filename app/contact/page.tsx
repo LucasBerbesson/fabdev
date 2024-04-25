@@ -76,25 +76,25 @@ export default function Form() {
     };
 
     return (
-        <div className="pt-44 pb-8">
+        <div className="pt-44 pb-8 mb-20">
             <div className="w-11/12 sm:w-6/12 mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
                 <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
                     Contactez Fabdev en remplissant ce formulaire !
                 </h2>
                 <form className="my-8" onSubmit={handleSubmit}>
-                    <LabelInputContainer className="mb-7">
+                    <LabelInputContainer className="mb-10">
                         <Label htmlFor="name">Quel est votre nom ?</Label>
-                        <Input required placeholder="" id="name" type="text" name="name"/>
+                        <Input required placeholder="John Doe" id="name" type="text" name="name"/>
                     </LabelInputContainer>
-                    <LabelInputContainer className="mb-7">
+                    <LabelInputContainer className="mb-10">
                         <Label htmlFor="company">Pour quelle société travaillez-vous ?</Label>
-                        <Input required id="company" placeholder="" type="text" name="company"/>
+                        <Input required id="company" placeholder="Acme inc" type="text" name="company"/>
                     </LabelInputContainer>
-                    <LabelInputContainer className="mb-7">
+                    <LabelInputContainer className="mb-10">
                         <Label htmlFor="project">Décrivez votre projet en une ligne</Label>
-                        <Input required id="project" placeholder="" type="text" name="project"/>
+                        <Input required id="project" placeholder="Un outil de gestion boosté à l'IA" type="text" name="project"/>
                     </LabelInputContainer>
-                    <LabelInputContainer className="mb-7">
+                    <LabelInputContainer className="mb-10">
                         <Label htmlFor="budgets">Quel est le budget pour votre projet ?</Label>
                         <div>
                             <input className="inputLabel" id="0-10" type="radio" defaultValue="0-10" hidden name="budget" ref={budgetRef}/>
@@ -109,7 +109,7 @@ export default function Form() {
                             <label htmlFor="150" className="mt-1 mx-1 inline-block p-2 px-3.5 rounded-3xl bg-neutral-200 dark:bg-neutral-800 hover:cursor-pointer">150k€+</label>
                         </div>
                     </LabelInputContainer>
-                    <LabelInputContainer className="mb-7">
+                    <LabelInputContainer className="mb-10">
                         <Label htmlFor="deadline">Quel est votre délai pour réaliser votre projet ?</Label>
                         <div>
                             <input className="inputLabel" id="mois" type="radio" defaultValue="mois" hidden name="deadline" ref={delaiRef}/>
@@ -122,7 +122,7 @@ export default function Form() {
                             <label htmlFor="unknown" className="mt-1 mx-1 inline-block p-2 px-3.5 rounded-3xl bg-neutral-200 dark:bg-neutral-800 hover:cursor-pointer">Je ne sais pas</label>
                         </div>
                     </LabelInputContainer>
-                    <LabelInputContainer className="mb-7">
+                    <LabelInputContainer className="mb-10">
                         <Label htmlFor="email">Adresse mail</Label>
                         <Input id="email" required name="email" placeholder="" type="email"/>
                     </LabelInputContainer>

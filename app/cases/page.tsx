@@ -7,7 +7,7 @@ import CasesList from "@/components/ui/cases-list";
 
 export default function Page() {
     return (
-        <div className="">
+        <div className="max-w-screen-xl mx-auto">
             <div className="h-[14vh] w-full">
             </div>
             <h1 className="text-5xl text-center m-10">

@@ -31,17 +31,17 @@ export default function Page() {
     }, []);
 
     return (
-        <div className=" pt-32 pb-10 flex flex-col items-center mx-5 overflow-x-hidden">
+        <div className="pt-32 pb-10 flex flex-col items-center overflow-x-hidden max-w-screen-xl mx-auto px-5">
             <Fondateurs></Fondateurs>
             <div className="text-5xl font-bold my-10 text-center">Quelques articles</div>
             {articles.map((article) => (
-                <Link href={"/articles/" + article.id} key={article.id} className=" flex flex-col sm:flex-row sm:w-9/12 my-8 sm:my-4 cursor-pointer">
+                <Link href={"/articles/" + article.id} key={article.id} className="flex flex-col gap-5 sm:flex-row sm:w-9/12 my-5 cursor-pointer">
                     <div className="sm:w-4/12">
                         <Image
                             src={"https://fabdev.fr" + article.picture}
                             height="600"
                             width="600"
-                            className="h-64 w-full rounded-xl group-hover/card:shadow-xl"
+                            className=" w-full rounded-xl group-hover/card:shadow-xl"
                             alt="thumbnail"
                         />
                     </div>

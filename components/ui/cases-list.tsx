@@ -76,7 +76,7 @@ export default function CasesList() {
                          onClick={() => selectTag(cas)}>{cas}</div>
                 ))}
             </div>
-            <motion.div layout className="grid grid-cols-1 sm:grid-cols-3 dark:text-white gap-10 sm:px-10">
+            <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 dark:text-white gap-5 sm:px-10">
                 <AnimatePresence>
                     {filtered.map((cas) => (
                         <motion.a animate={{opacity: 1}} initial={{opacity: 0}} exit={{opacity: 0}} transition={{duration: 0.25}} layout key={cas.id} href={"cases/" + cas.id + "?tag=" + activeTag}>

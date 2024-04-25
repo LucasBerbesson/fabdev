@@ -7,7 +7,7 @@ import {InfiniteMovingCards} from "@/components/ui/infinite-moving-cards"; // Mo
 import {Button} from "@/components/ui/moving-border"; // Modify the import path accordingly
 import ThemeToggle from "@/components/ui/theme-toggle";
 import {CardContainer, CardItem, CardBody, useMouseEnter} from "@/components/ui/3d-cards";
-import React, {useEffect, useState} from "react";
+import React, {Suspense, useEffect, useState} from "react";
 import Link from "next/link"; // Modify the import path accordingly
 
 const testimonials = [
@@ -56,12 +56,14 @@ const cardsData = [
             'FABDEV fait de la conception et du developpement informatique web un artisan de génie !',
         nom: "Gwilherm Poullennec",
         role: "Chef d'équipe, RTE",
+        image: "/images/gwilherm.jpg",
     },
     {
         title: 'Fabdev a développé de grands succès pour notre entreprise. Une équipe efficace et plus que sympathique, à l’écoute de ses clients',
         content: "Fabdev nous a accompagné dans deux projets de digitalisation, axés sur la transformation et l’innovation, avec une forte dimension métiers. L’équipe a contribué activement à l’identification des besoins, au design des solutions et à leur mise en œuvre. L'accompagnement « front to end » et l’implication active et engagée à comprendre les contraintes métiers ont permis d’avoir dès la première version, une solution opérationnelle efficace. La capacité à héberger la solution dans un premier temps et accompagner par la suite la reprise dans les SI de notre groupe en satisfaisant toutes les contraintes de sécurité a véritablement aidé à l’adoption et au succès des deux projets. Deux grands succès au final avec une équipe efficace et plus que sympathique, à l’écoute de ses clients.",
         nom: "François-Xavier Olivieri",
         role: "Director Hydrogen, Engie",
+        image: "/images/fx.jpeg",
     },
     {
         title: 'Fonctionnement agile, respect des délais, budget dimensionné au plus juste : je ne peux que recommander FABDEV pour vos projets digitaux ',
@@ -70,6 +72,7 @@ const cardsData = [
             "Les solutions techniques proposées sont toujours expliquées de manière pertinente, permettant d’avoir toutes les clés en main pour réaliser des arbitrages. Fonctionnement agile, respect des délais, budget dimensionné au plus juste : je ne peux que recommander FABDEV pour vos projets digitaux !",
         nom: "Arnaud Marec",
         role: "Directeur Marketing",
+        image: "/images/arnaud.jpeg",
     },
     {
         title: 'Vrai sentiment d\'écoute et de compréhension de notre besoin. Excellente qualité des livrables.\n' +
@@ -78,6 +81,7 @@ const cardsData = [
             "Ce fut un réel plaisir de travailler avec FABDEV.",
         nom: "Antoine Aimar",
         role: "Manager Achats, L'Oréal\n",
+        image: "/images/antoine.jpeg",
     },
 ];
 
@@ -86,9 +90,10 @@ interface CardProps {
     content: string;
     nom: string;
     role: string;
+    image: string;
 }
 
-const Card: React.FC<CardProps> = ({title, content, nom, role}) => {
+const Card: React.FC<CardProps> = ({title, content, nom, role, image}) => {
     const [expanded, setExpanded] = useState(false);
 
     const toggleExpand = () => {
@@ -106,15 +111,24 @@ const Card: React.FC<CardProps> = ({title, content, nom, role}) => {
                         expanded ? 'max-h-96' : 'max-h-0'
                     }`}
                 >
-                    <p className="my-3">{content}</p>
+                    <p className="my-3 font-normal text-base text-slate-400 mb-4 relative z-50">{content}</p>
                 </div>
                 <div className="flex flex-row justify-between items-center w-full">
-                    <div className="font-normal text-base text-slate-500 mb-4 relative z-50">
-                        {nom} <br/>
-                        {role}
+                    <div className="flex flex-column items-center ">
+                        <Image
+                            src={image}
+                            height="40"
+                            width="40"
+                            className="rounded-xl aspect-w-1 aspect-h-1 object-cover w-12 h-12 me-4"
+                            alt="thumbnail"
+                        />
+                        <div className="font-normal text-base text-slate-500 relative z-50">
+                            {nom} <br/>
+                            {role}
+                        </div>
                     </div>
                     <div
-                        className="h-10 w-10 me-6 rounded-full border flex items-center text-gray-500 justify-center mb-4 border-gray-500 hover:border-gray-100 cursor-pointer text-gray-300 hover:text-gray-50">
+                        className="h-10 w-10 me-6 rounded-full border flex items-center text-gray-500 justify-center mb-4 border-gray-500 hover:border-gray-100 cursor-pointer hover:text-gray-50">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -173,7 +187,7 @@ export default function Home() {
     }
     return (
         <div className="pt-20 overflow-x-hidden">
-            <HeroParallax products={products}/>
+                <HeroParallax products={products}/>
             <div className="flex flex-col justify-items-center items-center">
                 <p className="max-w-[50%] text-xl md:text-xl mt-8 dark:text-neutral-200 text-center mb-20">
                     Notre méthode de travail et notre expérience nous permettent de livrer
@@ -199,7 +213,7 @@ export default function Home() {
                 <p className="text-md text-center mt-3">
                     Notre excellence et polyvalence techniques nous permettent de traiter toutes vos problématiques
                 </p>
-                <div className={"sm:mx-64 text-center my-10"}>
+                <div className={"sm:mx-64 text-center my-10 max-w-screen-xl"}>
                     {Array.from(allServices).map((cas: string) => (
                         <Link href={"/cases/?tag=" + cas} key={cas}
                             className={"border-black border-2 inline-block border-opacity-10 px-3 py-2 rounded-3xl bg-gray-200 bg-opacity-50 me-3 mb-2 cursor-pointer dark:bg-opacity-10 dark:border-gray-200 dark:border-opacity-20"}
@@ -207,9 +221,9 @@ export default function Home() {
                     ))}
                 </div>
                 <div className="text-5xl font-bold mb-20 mt-10 mx-4 text-center">Témoignages de nos clients</div>
-                <div className="grid grid-cols-1 sm:grid-cols-2  gap-12 mx-4 sm:mx-16 mb-20">
+                <div className="grid grid-cols-1 sm:grid-cols-2  gap-12 mx-4 sm:mx-16 mb-20 max-w-screen-xl">
                     {cardsData.map((card, index) => (
-                        <Card key={index} title={card.title} content={card.content} nom={card.nom} role={card.role}/>
+                        <Card key={index} title={card.title} content={card.content} nom={card.nom} role={card.role} image={card.image}/>
                     ))}
                 </div>
             </div>

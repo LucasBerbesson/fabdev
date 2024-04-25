@@ -11,8 +11,7 @@ export function Fondateurs({}: {}) {
             <div className="text-5xl font-bold mb-20 ">Les fondateurs</div>
             <div className="flex flex-col md:flex-row">
                 <CardContainer className="w-11/12 h-full mb-8 rounded-3xl">
-                    <CardBody
-                        className="bg-gray-50 dark:bg-black p-5 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] rounded-xl ">
+                    <CardBody className="bg-gray-50 dark:bg-black p-5 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] rounded-xl ">
                         <a href="https://www.linkedin.com/in/claire-berbesson-86ba1339/" className="flex flex-col  items-center lg:flex-row">
                             <CardItem translateZ="0" className="h-full me-7 flex flex-col content-center justify-center ">
                                 <Image
@@ -55,7 +54,7 @@ export function Fondateurs({}: {}) {
                                     className="text-sm max-w-sm dark:text-neutral-300 mt-3 "
                                 >
                                     Diplômée de l’ESSEC, Claire oeuvre pour la résolution de problématiques d’entreprise par le code. Elle facilite le déroulement des projets en priorisant les
-                                    besoins et en accompagnant la transformation digitale. Elle a embarqué plus de 500 collaborateurs dans la co-construction d’outils.
+                                    besoins et en accompagnant la transformation. Elle a embarqué plus de 1000 collaborateurs dans la co-construction d’outils.
                                 </CardItem>
                             </div>
                         </a>
@@ -63,8 +62,7 @@ export function Fondateurs({}: {}) {
                     </CardBody>
                 </CardContainer>
                 <CardContainer className="w-11/12 h-full mb-8 rounded-3xl">
-                    <CardBody
-                        className="bg-gray-50 dark:bg-black p-5 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] rounded-xl h-full lex flex-col content-center">
+                    <CardBody className="bg-gray-50 dark:bg-black p-5 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] rounded-xl ">
                         <a href="https://www.linkedin.com/in/claire-berbesson-86ba1339/" className="flex flex-col lg:flex-row items-center">
                             <CardItem translateZ="0" className="h-full me-7 flex flex-col content-center justify-center">
                                 <Image
@@ -106,9 +104,8 @@ export function Fondateurs({}: {}) {
                                     translateZ="40"
                                     className="text-sm max-w-sm dark:text-neutral-300 mt-3"
                                 >
-                                    Diplômé de CentraleSupélec, Lucas code depuis plus de 15 ans. Il a accompagné le développement de plus de 80 plateformes, algorithmes, scripts et outils pour des
-                                    Grands
-                                    Groupes (ENGIE, RTE, L’Oréal…) et PME.
+                                    Diplômé de CentraleSupélec, Lucas code depuis plus de 15 ans. Il a participé au développement de plus de 90 plateformes, algorithmes, scripts et outils pour des
+                                    Grands Groupes, des PME et des startups de tous secteurs. Il aime transformer les problèmes complexes en solutions simples.
                                 </CardItem>
                             </div>
                         </a>
