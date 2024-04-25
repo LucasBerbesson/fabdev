@@ -197,7 +197,7 @@ export default function Home() {
     return (
         <div className="pt-20 overflow-x-hidden">
             <HeroParallax products={products}/>
-            <div className=" p-4 max-w-7xl mx-auto relative z-10  w-full pt-20 md:pt-0 text-center mb-48">
+            <div className=" p-4 max-w-7xl mx-auto relative z-10  w-full pt-20 md:pt-0 text-center mb-40">
                 <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-50 dark:to-neutral-400 from-neutral-500  to-neutral-700 bg-opacity-50">
                     On peut tout faire <br/> vite et bien.
                 </h1>
@@ -205,8 +205,6 @@ export default function Home() {
                     Notre méthode de travail et notre expérience nous permettent de livrer des outils en moyenne 4 fois plus vite que nos concurrents (et accessoirement, à des prix compétitifs...)
                 </p>
                 <Link href="/cases/" className="mt-12">
-
-
                     <Button
                         borderRadius="3rem"
                         className="bg-neutral-800 dark:bg-black dark:text-white text-xl text-white  ">
@@ -216,7 +214,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-items-center items-center">
                 <Fondateurs></Fondateurs>
-                <div className=" rounded-md flex flex-col bg-opacity-60 antialiased bg-gray-50 dark:bg-neutral-700 dark:bg-opacity-60 items-center justify-center relative overflow-hidden mt-36 mb-20">
+                <div className=" rounded-md flex flex-col bg-opacity-60 antialiased bg-gray-50 dark:bg-neutral-700 dark:bg-opacity-60 items-center justify-center relative overflow-hidden mt-36 ">
                     <InfiniteMovingCards
                         items={testimonials}
                         direction="left"

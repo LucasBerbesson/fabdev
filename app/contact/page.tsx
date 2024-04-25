@@ -59,7 +59,7 @@ export default function Form() {
                 setMessage("Le message n'est pas parvenu à destination.");
             } else {
                 console.log('Success:', await response.json());
-                setColorMessage("bg-fabdev")
+                setColorMessage("bg-teal-500")
                 setMessage('Votre formulaire a été soumis avec succès.');
             }
             const form = event.target as HTMLFormElement;

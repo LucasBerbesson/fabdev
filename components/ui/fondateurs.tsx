@@ -11,7 +11,7 @@ export function Fondateurs({}: {}) {
             <div className="text-5xl font-bold mb-20 ">Les fondateurs</div>
             <div className="flex flex-col md:flex-row">
                 <CardContainer className="w-11/12 h-full mb-8 rounded-3xl">
-                    <CardBody className="bg-gray-50 dark:bg-black p-5 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] rounded-xl ">
+                    <CardBody className="bg-gray-50 dark:bg-black p-10 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] rounded-xl ">
                         <a href="https://www.linkedin.com/in/claire-berbesson-86ba1339/" className="flex flex-col  items-center lg:flex-row">
                             <CardItem translateZ="0" className="h-full me-7 flex flex-col content-center justify-center ">
                                 <Image
@@ -58,11 +58,10 @@ export function Fondateurs({}: {}) {
                                 </CardItem>
                             </div>
                         </a>
-
                     </CardBody>
                 </CardContainer>
                 <CardContainer className="w-11/12 h-full mb-8 rounded-3xl">
-                    <CardBody className="bg-gray-50 dark:bg-black p-5 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] rounded-xl ">
+                    <CardBody className="bg-gray-50 dark:bg-black p-10 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] rounded-xl ">
                         <a href="https://www.linkedin.com/in/claire-berbesson-86ba1339/" className="flex flex-col lg:flex-row items-center">
                             <CardItem translateZ="0" className="h-full me-7 flex flex-col content-center justify-center">
                                 <Image
