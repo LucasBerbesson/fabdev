@@ -1,11 +1,14 @@
 'use client'
 import React, {useState, useEffect, Suspense} from "react";
-import Image from 'next/image';
 import {motion, AnimatePresence} from 'framer-motion';
 import {useSearchParams} from 'next/navigation'
+import {LazyLoadImage} from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/black-and-white.css';
 
 
 import {CardBody, CardContainer, CardItem} from "@/components/ui/3d-cards";
+import {GlowingStarsBackgroundCard} from "@/components/ui/glowing-stars";
+import Link from "next/link";
 
 export default function CasesList() {
     type ItemType = {
@@ -35,13 +38,15 @@ export default function CasesList() {
     const [filtered, setFiltered] = useState<TypeItems>([]);
     let allServices = new Set<string>();
     useEffect(() => {
-        let MyData = sessionStorage.getItem("dataCases")
-        if (MyData) {
-            const ParsedData = JSON.parse(MyData)
-            setFiltered(ParsedData)
-            setItems(ParsedData)
-
-        }
+        const fetchData = async () => {
+            const res = await fetch('/cases/api/');
+            const MyData = await res.json();
+            if (MyData) {
+                setFiltered(MyData)
+                setItems(MyData)
+            }
+        };
+        fetchData()
     }, [])
 
     if (items) {

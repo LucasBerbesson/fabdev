@@ -5,10 +5,12 @@ import {Meteors} from "@/components/ui/meteor"; // Modify the import path accord
 import {Fondateurs} from "@/components/ui/fondateurs"; // Modify the import path accordingly
 import {InfiniteMovingCards} from "@/components/ui/infinite-moving-cards"; // Modify the import path accordingly
 import {Button} from "@/components/ui/moving-border"; // Modify the import path accordingly
-import ThemeToggle from "@/components/ui/theme-toggle";
-import {CardContainer, CardItem, CardBody, useMouseEnter} from "@/components/ui/3d-cards";
-import React, {Suspense, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Link from "next/link"; // Modify the import path accordingly
+import {LampContainer} from "@/components/ui/lamp";
+import {motion} from "framer-motion";
+import {cn} from "@/utils/cn";
+
 
 const testimonials = [
     {
@@ -139,11 +141,11 @@ const Card: React.FC<CardProps> = ({title, content, nom, role, image}) => {
                                 expanded ? 'transform -rotate-180' : ''
                             }`}
                         >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                        />
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
+                            />
                         </svg>
                     </div>
                 </div>
@@ -161,22 +163,27 @@ export default function Home() {
     const [products, setProducts] = useState<TypeItems>([]);
     let allServices = new Set<string>();
     useEffect(() => {
-        let MyData = sessionStorage.getItem("dataCases")
-        if (MyData) {
-            const ParsedData = JSON.parse(MyData)
-            let newProducts = []
-            for (let item of ParsedData) {
-                newProducts.push(
-                    {
-                        title: item["title"],
-                        thumbnail: item["screenshot"],
-                        link: `/cases/${item["id"]}?tag=`,
-                        services: item["services"]
-                    }
-                )
+        const fetchData = async () => {
+            const res = await fetch('/cases/api/');
+            const MyData = await res.json();
+            if (MyData) {
+                const ParsedData = MyData
+                let newProducts = []
+                for (let item of ParsedData) {
+                    newProducts.push(
+                        {
+                            title: item["title"],
+                            thumbnail: item["screenshot"],
+                            link: `/cases/${item["id"]}?tag=`,
+                            services: item["services"]
+                        }
+                    )
+                }
+                setProducts(newProducts)
             }
-            setProducts(newProducts)
-        }
+        };
+        fetchData()
+
     }, [])
     if (products) {
         products.forEach(item => {

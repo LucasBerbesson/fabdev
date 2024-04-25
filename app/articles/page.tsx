@@ -21,12 +21,16 @@ export default function Page() {
     const [articles, setArticles] = useState<ListArticle>([]);
 
     useEffect(() => {
-        let MyData = sessionStorage.getItem("dataArticles")
-        if (MyData) {
-            const ParsedData = JSON.parse(MyData)
-            setArticles(ParsedData)
 
-        }
+        const fetchData = async () => {
+            const res = await fetch('/articles/api/');
+            const MyData = await res.json();
+            if (MyData) {
+                setArticles(MyData)
+
+            }
+        };
+        fetchData()
 
     }, []);
 

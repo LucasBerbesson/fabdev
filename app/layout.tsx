@@ -5,23 +5,10 @@ import Theme from '@/components/ui/theme-provider'
 import React from "react";
 import {usePathname} from 'next/navigation'
 import Nav from "@/components/ui/nav"
-import {StoreData} from "@/components/data/store-data";
 import Link from "next/link";
 import nextConfig from "@/next.config.mjs"
 import Head from "next/head";
 
-const getDataCases = async () => {
-    const res = await fetch(
-        `https://fabdev.fr/api/cases/`
-    )
-    return res.json()
-}
-const getDataArticles = async () => {
-    const res = await fetch(
-        `https://fabdev.fr/api/articles/`
-    )
-    return res.json()
-}
 const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
@@ -35,9 +22,6 @@ export default async function RootLayout({
                                          }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const dataCases = await getDataCases()
-    const dataArticles = await getDataArticles()
-
     return (
         <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
         <body className={inter.className}>
@@ -94,9 +78,6 @@ export default async function RootLayout({
                     </div>
                 </div>
             </div>
-
-
-            <StoreData dataCases={dataCases} dataArticles={dataArticles}></StoreData>
         </Theme>
         </body>
         </html>

@@ -6,8 +6,9 @@ import Image from "next/image";
 import React, {useEffect, useState} from "react";
 import {cn} from "@/utils/cn";
 import Link from "next/link";
-import { useSearchParams } from 'next/navigation'
-
+import {useSearchParams} from 'next/navigation'
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/black-and-white.css';
 
 export default function Page({params}: { params: { id: number } }) {
     type ItemType = {
@@ -31,21 +32,24 @@ export default function Page({params}: { params: { id: number } }) {
     const searchParams = useSearchParams()
     let tag = searchParams.get('tag')
     useEffect(() => {
-        let MyData = sessionStorage.getItem("dataCases")
-        if (MyData) {
-            let ParsedData = JSON.parse(MyData)
-            if (tag) {
-                ParsedData = ParsedData.filter((item: ItemType) => item.services.includes(tag))
+        const fetchData = async () => {
+            const res = await fetch('/cases/api/');
+            let MyData = await res.json();
+            if (MyData) {
+                if (tag) {
+                    MyData = MyData.filter((item: ItemType) => item.services.includes(tag))
+                }
+                setItems(MyData)
             }
-            setItems(ParsedData)
-        }
+        };
+        fetchData()
     }, [])
 
 
     const item = items.find((item: ItemType) => item.id == params.id);
     const currentIndex = item ? items.indexOf(item) : -1;
     const previousIndex = currentIndex !== 0 ? currentIndex - 1 : items.length - 1;
-    const nextIndex = currentIndex !== items.length-1 ? currentIndex + 1 : 0;
+    const nextIndex = currentIndex !== items.length - 1 ? currentIndex + 1 : 0;
     if (item) {
         let outcomes = item.outcomes.split("-");
         outcomes = outcomes.map((element: string) =>
@@ -102,9 +106,9 @@ export default function Page({params}: { params: { id: number } }) {
 
                 <div className="my-8">
                     {item.services.slice(0, 4).map((cas: string) => (
-                        <Link href={"/cases/?tag="+cas} key={cas}
-                         className={"border-black border-2 inline-block border-opacity-10 px-3 py-2 rounded-3xl bg-gray-200 bg-opacity-50 me-3 mb-2 cursor-pointer dark:bg-opacity-10 dark:border-gray-200 dark:border-opacity-20"}
-                         >{cas}</Link>
+                        <Link href={"/cases/?tag=" + cas} key={cas}
+                              className={"border-black border-2 inline-block border-opacity-10 px-3 py-2 rounded-3xl bg-gray-200 bg-opacity-50 me-3 mb-2 cursor-pointer dark:bg-opacity-10 dark:border-gray-200 dark:border-opacity-20"}
+                        >{cas}</Link>
                     ))}
                 </div>
                 <div className="border-y-2 border-y-opacity-40 border-y-black my-12 p-3 dark:border-y-white dark:border-y-opacity-80">
@@ -129,7 +133,8 @@ export default function Page({params}: { params: { id: number } }) {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 my-6 gap-5">
                     <div className="px-6">
-                        <Image
+                        <LazyLoadImage
+                            effect="black-and-white"
                             src={item.screenshot}
                             height="600"
                             width="500"

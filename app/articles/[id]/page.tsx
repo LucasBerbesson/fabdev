@@ -20,19 +20,22 @@ export default function Home({params}: { params: { id: number } }) {
     const {theme, setTheme} = useTheme()
 
     useEffect(() => {
-        let MyData = sessionStorage.getItem("dataArticles")
-        if (MyData) {
-            const ParsedData = JSON.parse(MyData)
-            const firstArticle = ParsedData.find((item: Article) => item.id == params.id)
-            const regex = /src=["']([^"']*)["'][^>]*>/g;
-            firstArticle.content = firstArticle.content.replace(regex, (match: string, src: string) => {
-                if (!src.startsWith('https://')) {
-                    src = `https://fabdev.fr/${src}`;
-                }
-                return match.replace(/src=["'][^"']*["']/, `src="${src}"`);
-            });
-            setArticle(firstArticle);
-        }
+        const fetchData = async () => {
+            const res = await fetch('/articles/api/');
+            const MyData = await res.json();
+            if (MyData) {
+                const firstArticle = MyData.find((item: Article) => item.id == params.id)
+                const regex = /src=["']([^"']*)["'][^>]*>/g;
+                firstArticle.content = firstArticle.content.replace(regex, (match: string, src: string) => {
+                    if (!src.startsWith('https://')) {
+                        src = `https://fabdev.fr/${src}`;
+                    }
+                    return match.replace(/src=["'][^"']*["']/, `src="${src}"`);
+                });
+                setArticle(firstArticle);
+            }
+        };
+        fetchData()
 
     }, []);
 
