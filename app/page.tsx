@@ -12,7 +12,7 @@ import {motion} from "framer-motion";
 
 import {cn} from "@/utils/cn";
 
-const testimonials = [
+const clients = [
     {
         link: "/partenaires/sncf.png",
         name: "SNCF",
@@ -48,6 +48,18 @@ const testimonials = [
     {
         link: "/partenaires/oreal.png",
         name: "L'Oréal",
+    },
+    {
+        link: "/partenaires/alogia.png",
+        name: "Alogia",
+    },
+    {
+        link: "/partenaires/established.png",
+        name: "Established inc",
+    },
+    {
+        link: "/partenaires/cooperation_agricole.png",
+        name: "La cooperation agricole",
     },
 ];
 const cardsData = [
@@ -214,14 +226,20 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-items-center items-center">
                 <Fondateurs></Fondateurs>
-                <div className=" rounded-md flex flex-col bg-opacity-60 antialiased bg-gray-50 dark:bg-neutral-700 dark:bg-opacity-60 items-center justify-center relative overflow-hidden mt-36 ">
-                    <InfiniteMovingCards
-                        items={testimonials}
-                        direction="left"
-                        speed="slow"
-                    />
-                </div>
                 <div className="text-5xl font-bold mb-20 mt-48 mx-4 text-center">Témoignages de nos clients</div>
+                <div className="grid grid-cols-3 lg:grid-cols-6 max-w-screen-2xl mx-auto mt-0 my-10 lg:mb-20">
+                    {clients.map((client, index) => (
+                        <div className={"text-center"}>
+                            <Image
+                                src={client.link}
+                                height="100"
+                                width="200"
+                                className="mx-auto filter grayscale  brightness-0 invert transition-all"
+                                alt="thumbnail"
+                            />
+                        </div>
+                    ))}
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2  gap-12 mx-4 sm:mx-16 mb-48 max-w-screen-xl">
                     {cardsData.map((card, index) => (
                         <Card key={index} title={card.title} content={card.content} nom={card.nom} role={card.role} image={card.image}/>
