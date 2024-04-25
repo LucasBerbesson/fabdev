@@ -108,7 +108,7 @@ export const Header = () => {
                 Développe vos applications web, data & IA
             </h1>
             <p className="max-w-3xl text-lg md:text-xl mt-8 dark:text-neutral-200">
-                Devenez le chouchou de votre manager en nous confiant votre projet de développement, de dashboard, de plateforme, d'API, d'IA générative, de dataviz, de machine learning et encore bien d’autres défis.
+                Devenez le chouchou de votre manager en nous confiant votre projet de développement, de dashboard, de plateforme, d&apos;API, d&apos;IA générative, de dataviz, de machine learning et encore bien d’autres défis.
 
             </p>
         </div>
