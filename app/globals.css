@@ -6,7 +6,8 @@
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
-    --fabdev: rgb(86, 223, 189);
+    --fabdev: rgb(122, 225, 200);
+
 }
 
 @media (prefers-color-scheme: dark) {

@@ -117,7 +117,7 @@ export default function Form() {
                             <input className="inputLabel" id="semestre" type="radio" defaultValue="semestre" hidden name="deadline" ref={delaiRef}/>
                             <label htmlFor="semestre" className="mt-1 mx-1 inline-block p-2 px-3.5 rounded-3xl bg-neutral-200 dark:bg-neutral-800 hover:cursor-pointer">Dans le semestre</label>
                             <input className="inputLabel" id="annee" type="radio" defaultValue="annee" hidden name="deadline" ref={delaiRef}/>
-                            <label htmlFor="annee" className="mt-1 mx-1 inline-block p-2 px-3.5 rounded-3xl bg-neutral-200 dark:bg-neutral-800 hover:cursor-pointer">Dans l`&apos;année</label>
+                            <label htmlFor="annee" className="mt-1 mx-1 inline-block p-2 px-3.5 rounded-3xl bg-neutral-200 dark:bg-neutral-800 hover:cursor-pointer">Dans l&apos;année</label>
                             <input className="inputLabel" id="unknown" type="radio" defaultValue="unknown" hidden name="deadline" ref={delaiRef}/>
                             <label htmlFor="unknown" className="mt-1 mx-1 inline-block p-2 px-3.5 rounded-3xl bg-neutral-200 dark:bg-neutral-800 hover:cursor-pointer">Je ne sais pas</label>
                         </div>

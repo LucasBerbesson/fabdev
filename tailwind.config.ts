@@ -19,6 +19,8 @@ const config: Config = {
 
             },
             animation: {
+                spotlight: "spotlight 2s ease .75s 1 forwards",
+
                 aurora: "aurora 60s linear infinite",
                 scroll:
                     "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
@@ -47,6 +49,16 @@ const config: Config = {
                     "100%": {
                         transform: "rotate(215deg) translateX(-500px)",
                         opacity: "0",
+                    },
+                },
+                spotlight: {
+                    "0%": {
+                        opacity: "0",
+                        transform: "translate(-72%, -62%) scale(0.5)",
+                    },
+                    "100%": {
+                        opacity: "1",
+                        transform: "translate(-50%,-40%) scale(1)",
                     },
                 },
             },

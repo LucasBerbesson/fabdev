@@ -7,10 +7,10 @@ import {InfiniteMovingCards} from "@/components/ui/infinite-moving-cards"; // Mo
 import {Button} from "@/components/ui/moving-border"; // Modify the import path accordingly
 import React, {useEffect, useState} from "react";
 import Link from "next/link"; // Modify the import path accordingly
-import {LampContainer} from "@/components/ui/lamp";
+import {LampContainer} from "@/components/ui/lamp"; // Modify the import path accordingly
 import {motion} from "framer-motion";
-import {cn} from "@/utils/cn";
 
+import {cn} from "@/utils/cn";
 
 const testimonials = [
     {
@@ -87,6 +87,7 @@ const cardsData = [
     },
 ];
 
+
 interface CardProps {
     title: string;
     content: string;
@@ -104,7 +105,7 @@ const Card: React.FC<CardProps> = ({title, content, nom, role, image}) => {
 
     return (
         <div className="relative cursor-pointer" onClick={toggleExpand}>
-            <div className="relative shadow-xl bg-gray-200 dark:bg-gray-900 border border-gray-200 dark:border-gray-800  px-4 py-8 overflow-hidden rounded-2xl flex flex-col justify-end items-start">
+            <div className="relative shadow-xl bg-gray-200 dark:bg-neutral-900 border border-gray-200 dark:border-gray-800  px-4 py-8 overflow-hidden rounded-2xl flex flex-col justify-end items-start">
                 <h1 className="font-bold text-xl dark:text-white mb-4 relative z-10">
                     {title} [...]
                 </h1>
@@ -141,11 +142,11 @@ const Card: React.FC<CardProps> = ({title, content, nom, role, image}) => {
                                 expanded ? 'transform -rotate-180' : ''
                             }`}
                         >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                            />
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
+                        />
                         </svg>
                     </div>
                 </div>
@@ -156,6 +157,7 @@ const Card: React.FC<CardProps> = ({title, content, nom, role, image}) => {
     )
         ;
 };
+
 
 export default function Home() {
     type ItemType = { title: string, link: string, thumbnail: string, services: [string] }
@@ -195,62 +197,34 @@ export default function Home() {
     return (
         <div className="pt-20 overflow-x-hidden">
             <HeroParallax products={products}/>
-            <div className="flex flex-col justify-items-center items-center mt-20">
+            <div className=" p-4 max-w-7xl mx-auto relative z-10  w-full pt-20 md:pt-0 text-center mb-48">
+                <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-50 dark:to-neutral-400 from-neutral-500  to-neutral-700 bg-opacity-50">
+                    On peut tout faire <br/> vite et bien.
+                </h1>
+                <p className="mt-4 mb-12 text-xl dark:text-neutral-300 text-neutral-700 max-w-lg text-center mx-auto">
+                    Notre méthode de travail et notre expérience nous permettent de livrer des outils en moyenne 4 fois plus vite que nos concurrents (et accessoirement, à des prix compétitifs...)
+                </p>
+                <Link href="/cases/" className="mt-12">
 
-                <LampContainer>
-                    <motion.h1
-                        initial={{opacity: 0.5, y: -120}}
-                        whileInView={{opacity: 1, y: -140}}
-                        transition={{
-                            delay: 0.3,
-                            duration: 0.8,
-                            ease: "easeInOut",
-                        }}
-                        className="mt-8 bg-gradient-to-br from-slate-400 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
-                    >
-                        On peut tout faire.
-                        <br/>Vite et bien
-                    </motion.h1>
-                    <div className="w-full mt-16 absolute">
-                        <div className="flex flex-col items-center">
-                            <p className="max-w-full text-xl md:text-xl my-10 dark:text-slate-300 text-center">
-                                Notre méthode de travail et notre expérience nous permettent de livrer
-                                des outils en moyenne 4 fois plus vite que nos concurrents (et accessoirement, à des prix compétitifs...)
-                            </p>
-                            <Link href="/cases/" className="">
-                                <Button
-                                    borderRadius="1.75rem"
-                                    className="bg-fabdev text-black text-lg "
-                                >
-                                    Voir tous nos projets
-                                </Button>
-                            </Link>
-                        </div>
-                    </div>
-                </LampContainer>
 
-                <div className="mb-10"></div>
+                    <Button
+                        borderRadius="3rem"
+                        className="bg-neutral-800 dark:bg-black dark:text-white text-xl text-white  ">
+                        Voir tous nos projets
+                    </Button>
+                </Link>
+            </div>
+            <div className="flex flex-col justify-items-center items-center">
                 <Fondateurs></Fondateurs>
-                <div className=" rounded-md flex flex-col bg-opacity-60 antialiased bg-gray-50 dark:bg-gray-800 dark:bg-opacity-60 items-center justify-center relative overflow-hidden mt-24 mb-24">
+                <div className=" rounded-md flex flex-col bg-opacity-60 antialiased bg-gray-50 dark:bg-neutral-700 dark:bg-opacity-60 items-center justify-center relative overflow-hidden mt-36 mb-20">
                     <InfiniteMovingCards
                         items={testimonials}
                         direction="left"
                         speed="slow"
                     />
                 </div>
-                <div className="text-5xl font-bold mb-3 text-center">Nos compétences</div>
-                <p className="text-md text-center mt-3">
-                    Notre excellence et polyvalence techniques nous permettent de traiter toutes vos problématiques
-                </p>
-                <div className={"sm:mx-64 text-center my-10 max-w-screen-xl"}>
-                    {Array.from(allServices).map((cas: string) => (
-                        <Link href={"/cases/?tag=" + cas} key={cas}
-                              className={"border-black border-2 inline-block border-opacity-10 px-3 py-2 rounded-3xl bg-gray-200 bg-opacity-50 me-3 mb-2 cursor-pointer dark:bg-opacity-10 dark:border-gray-200 dark:border-opacity-20"}
-                        >{cas}</Link>
-                    ))}
-                </div>
-                <div className="text-5xl font-bold mb-20 mt-10 mx-4 text-center">Témoignages de nos clients</div>
-                <div className="grid grid-cols-1 sm:grid-cols-2  gap-12 mx-4 sm:mx-16 mb-20 max-w-screen-xl">
+                <div className="text-5xl font-bold mb-20 mt-48 mx-4 text-center">Témoignages de nos clients</div>
+                <div className="grid grid-cols-1 sm:grid-cols-2  gap-12 mx-4 sm:mx-16 mb-48 max-w-screen-xl">
                     {cardsData.map((card, index) => (
                         <Card key={index} title={card.title} content={card.content} nom={card.nom} role={card.role} image={card.image}/>
                     ))}
