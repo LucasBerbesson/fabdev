@@ -229,7 +229,7 @@ export default function Home() {
                 <div className="text-5xl font-bold mb-20 mt-48 mx-4 text-center">Témoignages de nos clients</div>
                 <div className="grid grid-cols-3 lg:grid-cols-6 max-w-screen-2xl mx-auto mt-0 my-10 lg:mb-20">
                     {clients.map((client, index) => (
-                        <div className={"text-center"}>
+                        <div className={"text-center"} key={index}>
                             <Image
                                 src={client.link}
                                 height="100"
