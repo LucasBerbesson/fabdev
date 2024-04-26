@@ -61,6 +61,22 @@ const clients = [
         link: "/partenaires/cooperation_agricole.png",
         name: "La cooperation agricole",
     },
+    {
+        link: "/partenaires/culture.png",
+        name: "Ministère de la culture",
+    },
+    {
+        link: "/partenaires/olympics.png",
+        name: "Jeux olympiques",
+    },
+    {
+        link: "/partenaires/agn.png",
+        name: "AGN",
+    },
+    {
+        link: "/partenaires/ami.png",
+        name: "Ami Paris",
+    },
 ];
 const cardsData = [
     {
@@ -184,7 +200,8 @@ export default function Home() {
                 const ParsedData = MyData
                 let newProducts = []
                 for (let item of ParsedData) {
-                    newProducts.push(
+                    if (item.home) {
+                        newProducts.push(
                         {
                             title: item["title"],
                             thumbnail: item["screenshot"],
@@ -192,6 +209,7 @@ export default function Home() {
                             services: item["services"]
                         }
                     )
+                    }
                 }
                 setProducts(newProducts)
             }
@@ -213,8 +231,9 @@ export default function Home() {
                 <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-50 dark:to-neutral-400 from-neutral-500  to-neutral-700 bg-opacity-50">
                     On peut tout faire <br/> vite et bien.
                 </h1>
-                <p className="mt-4 mb-12 text-xl dark:text-neutral-300 text-neutral-700 max-w-lg text-center mx-auto">
-                    Notre méthode de travail et notre expérience nous permettent de livrer des outils en moyenne 4 fois plus vite que nos concurrents (et accessoirement, à des prix compétitifs...)
+                <p className="mt-4 mb-12 text-xl dark:text-neutral-300 text-neutral-700 max-w-2xl text-center mx-auto">
+                    Notre méthode de travail et notre expérience nous permettent de livrer des outils en moyenne 4 fois plus vite que nos concurrents (et accessoirement, à des prix compétitifs...) <br/>
+                    En <span className={"font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5"}>10 ans d&apos;existence</span>, nous avons développé <span className={"font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5"}>plus de 100 projets</span>.
                 </p>
                 <Link href="/cases/" className="mt-12">
                     <Button
@@ -227,7 +246,12 @@ export default function Home() {
             <div className="flex flex-col justify-items-center items-center">
                 <Fondateurs></Fondateurs>
                 <div className="text-5xl font-bold mb-20 mt-48 mx-4 text-center">Témoignages de nos clients</div>
-                <div className="grid grid-cols-3 lg:grid-cols-6 max-w-screen-2xl mx-auto mt-0 my-10 lg:mb-20">
+                <div className="grid grid-cols-1 sm:grid-cols-2  gap-12 mx-4 sm:mx-16 mb-10 max-w-screen-xl">
+                    {cardsData.map((card, index) => (
+                        <Card key={index} title={card.title} content={card.content} nom={card.nom} role={card.role} image={card.image}/>
+                    ))}
+                </div>
+                <div className="grid grid-cols-2 lg:grid-cols-8 max-w-screen-2xl mx-auto my-20 lg:mb-20">
                     {clients.map((client, index) => (
                         <div className={"text-center"} key={index}>
                             <Image
@@ -238,11 +262,6 @@ export default function Home() {
                                 alt="thumbnail"
                             />
                         </div>
-                    ))}
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2  gap-12 mx-4 sm:mx-16 mb-48 max-w-screen-xl">
-                    {cardsData.map((card, index) => (
-                        <Card key={index} title={card.title} content={card.content} nom={card.nom} role={card.role} image={card.image}/>
                     ))}
                 </div>
             </div>

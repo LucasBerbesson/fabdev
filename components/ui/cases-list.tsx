@@ -96,7 +96,7 @@ export default function CasesList() {
                                                 effect="black-and-white"
                                                 src={cas.thumbnail}
                                                 height="600"
-                                                width="600"
+                                                width="900"
                                                 className="  rounded-xl group-hover/card:shadow-xl"
                                                 alt="thumbnail"
                                             />

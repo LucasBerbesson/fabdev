@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import {Button} from "@/components/ui/moving-border";
 
 export const HeroParallax = ({
                                  products,
@@ -102,15 +103,25 @@ export const HeroParallax = ({
 
 export const Header = () => {
     return (
-        <div className="max-w-7xl  relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
+        <div className="max-w-7xl  relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0 z-50">
             <h1 className="text-4xl sm:text-2xl md:text-7xl font-bold dark:text-white">
                 <span className="text-fabdev">Fabdev</span><br/>
                 Développe vos applications web, data & IA
             </h1>
-            <p className="max-w-3xl text-lg md:text-xl mt-8 dark:text-neutral-200">
-                Devenez le chouchou de votre manager en nous confiant votre projet de développement, de dashboard, de plateforme, d&apos;API, d&apos;IA générative, de dataviz, de machine learning et encore bien d’autres défis.
+            <p className="max-w-3xl text-lg md:text-xl mt-8 mb-5 dark:text-neutral-200">
+                Devenez le chouchou de votre manager en nous confiant votre projet de développement, de dashboard, de plateforme, d&apos;API, d&apos;IA générative, de dataviz, de machine learning et encore bien d’autres défis. <br/>
+                Depuis 2015, nous avons développé plus de 100 projets et formé plus de 1000 collaborateurs.
 
             </p>
+             <div>
+              <Link href="/cases/" className="mt-12">
+                    <Button
+                        borderRadius="3rem"
+                        className="bg-neutral-800 dark:bg-black dark:text-white text-lg text-white  ">
+                        Voir nos projets
+                    </Button>
+                </Link>
+             </div>
         </div>
     );
 };
