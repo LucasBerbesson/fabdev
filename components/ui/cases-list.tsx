@@ -90,20 +90,20 @@ export default function CasesList() {
                                       href={"cases/" + cas.id + "?tag=" + activeTag}>
                                 <CardContainer className="hover:cursor-pointer  relative">
                                     <CardBody
-                                        className="rounded-xl m-5">
-                                        <CardItem translateZ="80" className="mt-4">
+                                        className="rounded-xl m-5 ">
+                                        <CardItem translateZ="80" className="mt-4 ">
                                             <LazyLoadImage
                                                 effect="black-and-white"
                                                 src={cas.thumbnail}
                                                 height="600"
                                                 width="900"
-                                                className="  rounded-xl group-hover/card:shadow-xl"
+                                                className="  rounded-xl group-hover/card:shadow-xl border-2 border-neutral-300 dark:border-0"
                                                 alt="thumbnail"
                                             />
                                         </CardItem>
                                         <CardItem
                                             translateZ="70"
-                                            className="text-xl font-bold text-neutral-600 dark:text-white mt-4"
+                                            className="text-xl font-bold text-neutral-600 dark:text-white mt-4 "
                                         >
                                             {cas.title}
                                         </CardItem>

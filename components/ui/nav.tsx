@@ -21,7 +21,7 @@ export default function Nav() {
         {name: 'Contact', href: '/contact', current: pathname === '/contact'},
     ]
     return (
-        <Disclosure as="nav" className="backdrop-blur-sm fixed z-50 w-full bg-neutral-600 dark:bg-neutral-900 bg-opacity-60 dark:bg-opacity-65">
+        <Disclosure as="nav" className="backdrop-blur-sm fixed z-50 w-full bg-neutral-50 dark:bg-neutral-900 bg-opacity-60 dark:bg-opacity-65">
             {({open}) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -42,8 +42,13 @@ export default function Nav() {
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
                                     <img
-                                        className="h-8 w-auto me-6"
-                                        src="/images/fabdev.png"
+                                        className="h-10 w-auto me-6 hidden dark:block"
+                                        src="/images/logo_white.png"
+                                        alt="Your Company"
+                                    />
+                                    <img
+                                        className="h-10 w-auto me-6  dark:hidden"
+                                        src="/images/logo.png"
                                         alt="Your Company"
                                     />
                                 </div>
@@ -54,7 +59,7 @@ export default function Nav() {
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current ? 'bg-neutral-600 dark:bg-neutral-800 text-white' : ' text-white dark:text-gray-400',
+                                                    item.current ? 'bg-neutral-600 dark:bg-neutral-800 text-white' : ' dark:text-gray-400',
                                                     'rounded-md px-3 py-2 text-md font-medium dark:hover:bg-neutral-800 hover:bg-neutral-600 hover:text-white'
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
