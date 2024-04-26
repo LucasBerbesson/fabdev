@@ -41,16 +41,18 @@ export default function Nav() {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
-                                    <img
-                                        className="h-10 w-auto me-6 hidden dark:block"
-                                        src="/images/logo_white.png"
-                                        alt="Your Company"
-                                    />
-                                    <img
-                                        className="h-10 w-auto me-6  dark:hidden"
-                                        src="/images/logo.png"
-                                        alt="Your Company"
-                                    />
+                                    <Link href="/">
+                                        <img
+                                            className="h-10 w-auto me-6 hidden dark:block"
+                                            src="/images/logo_white.png"
+                                            alt="Your Company"
+                                        />
+                                        <img
+                                            className="h-10 w-auto me-6  dark:hidden"
+                                            src="/images/logo.png"
+                                            alt="Your Company"
+                                        />
+                                    </Link>
                                 </div>
                                 <div className="hidden w-full  sm:mr-6 sm:block">
                                     <div className="flex justify-end space-x-4 ">

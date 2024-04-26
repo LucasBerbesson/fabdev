@@ -36,7 +36,7 @@ export default async function RootLayout({
                 <div className="h-[30vh] w-full flex flex-col items-center justify-around border-t border-gray-700 dark:border-gray-200 pt-10">
                     <div className="flex flex-col sm:flex-row text-center">
                         <Link href="/" className="mx-5 inline-block">Accueil</Link>
-                        <Link href="/cases/" className="mx-5 inline-block">Cas d`&apos;usage</Link>
+                        <Link href="/cases/" className="mx-5 inline-block">Cas d&apos;usage</Link>
                         <Link href="/articles/" className="mx-5 inline-block">Qui sommes-nous ?</Link>
                         <Link href="/mentions_legales/" className="mx-5 inline-block">Mentions légales</Link>
                         <Link href="/contact/" className="mx-5 inline-block">Contact</Link>
