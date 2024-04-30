@@ -21,7 +21,7 @@ export default function Nav() {
         {name: 'Contact', href: '/contact', current: pathname === '/contact'},
     ]
     return (
-        <Disclosure as="nav" className="backdrop-blur-sm fixed z-50 w-full bg-neutral-50 dark:bg-neutral-900 bg-opacity-60 dark:bg-opacity-65">
+        <Disclosure as="nav" className="backdrop-blur fixed z-50 w-full bg-neutral-50 dark:bg-neutral-900 bg-opacity-60 dark:bg-opacity-65">
             {({open}) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -29,7 +29,7 @@ export default function Nav() {
                             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                 {/* Mobile menu button*/}
                                 <Disclosure.Button
-                                    className="relative inline-flex items-center justify-center rounded-md p-2 text-white dark:text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                                    className="relative inline-flex items-center justify-center rounded-md p-2 text-black dark:text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                     <span className="absolute -inset-0.5"/>
                                     <span className="sr-only">Open main menu</span>
                                     {open ? (
@@ -85,8 +85,8 @@ export default function Nav() {
                                     as="a"
                                     href={item.href}
                                     className={classNames(
-                                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                        'block rounded-md px-3 py-2 text-base font-medium'
+                                        item.current ? 'bg-gray-900 text-white' : 'text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white',
+                                        'block rounded-md px-3 py-2  font-medium'
                                     )}
                                     aria-current={item.current ? 'page' : undefined}
                                 >
