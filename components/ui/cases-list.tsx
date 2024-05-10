@@ -40,13 +40,27 @@ export default function CasesList() {
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch('/cases/api/');
-            const MyData = await res.json();
-            if (MyData) {
-                setFiltered(MyData)
-                setItems(MyData)
+            const dataCases = await res.json();
+            if (dataCases) {
+                setFiltered(dataCases)
+                setItems(dataCases)
+                sessionStorage.setItem("dataCases", JSON.stringify(dataCases))
             }
         };
-        fetchData()
+        if (sessionStorage["dataCases"]) {
+            let MyData = sessionStorage.getItem("dataCases")
+            if (MyData) {
+                let dataCases: TypeItems;
+                const jsonData = JSON.parse(MyData)
+                dataCases = jsonData as TypeItems;
+                setFiltered(dataCases)
+                setItems(dataCases)
+            }
+
+        } else {
+            fetchData()
+        }
+
     }, [])
 
     if (items) {
