@@ -133,7 +133,8 @@ const Card: React.FC<CardProps> = ({title, content, nom, role, image}) => {
 
     return (
         <div className="relative cursor-pointer" onClick={toggleExpand}>
-            <div className="relative shadow-xl bg-gray-200 dark:bg-neutral-900 border border-gray-200 dark:border-gray-800  px-4 py-8 overflow-hidden rounded-2xl flex flex-col justify-end items-start">
+            <div
+                className="relative shadow-xl bg-gray-200 dark:bg-neutral-900 border border-gray-200 dark:border-gray-800  px-4 py-8 overflow-hidden rounded-2xl flex flex-col justify-end items-start">
                 <h1 className="font-bold text-xl dark:text-white mb-4 relative z-10">
                     {title} [...]
                 </h1>
@@ -170,11 +171,11 @@ const Card: React.FC<CardProps> = ({title, content, nom, role, image}) => {
                                 expanded ? 'transform -rotate-180' : ''
                             }`}
                         >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-                        />
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
+                            />
                         </svg>
                     </div>
                 </div>
@@ -197,18 +198,21 @@ export default function Home() {
             const res = await fetch('/cases/api/');
             const MyData = await res.json();
             if (MyData) {
+                if (!sessionStorage["dataCases"]) {
+                    sessionStorage.setItem("dataCases", JSON.stringify(MyData))
+                }
                 const ParsedData = MyData
                 let newProducts = []
                 for (let item of ParsedData) {
                     if (item.home) {
                         newProducts.push(
-                        {
-                            title: item["title"],
-                            thumbnail: item["screenshot"],
-                            link: `/cases/${item["id"]}?tag=`,
-                            services: item["services"]
-                        }
-                    )
+                            {
+                                title: item["title"],
+                                thumbnail: item["screenshot"],
+                                link: `/cases/${item["id"]}?tag=`,
+                                services: item["services"]
+                            }
+                        )
                     }
                 }
                 setProducts(newProducts)
@@ -232,8 +236,10 @@ export default function Home() {
                     On peut tout faire <br/> vite et bien.
                 </h1>
                 <p className="mt-4 mb-12 text-xl dark:text-neutral-300 text-neutral-700 max-w-2xl text-center mx-auto">
-                    Notre méthode de travail et notre expérience nous permettent de livrer des outils en moyenne 4 fois plus vite que nos concurrents (et accessoirement, à des prix compétitifs...) <br/>
-                    En <span className={"font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5"}>10 ans d&apos;existence</span>, nous avons développé <span className={"font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5"}>plus de 100 projets</span>.
+                    Notre méthode de travail et notre expérience nous permettent de livrer des outils en moyenne 4 fois plus vite que nos concurrents (et accessoirement, à des prix
+                    compétitifs...) <br/>
+                    En <span className={"font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5"}>10 ans d&apos;existence</span>, nous avons
+                    développé <span className={"font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5"}>plus de 100 projets</span>.
                 </p>
                 <Link href="/cases/" className="mt-12">
                     <Button
