@@ -22,13 +22,13 @@ export const metadata: Metadata = {
         url: "https://fabdev.fr",
         images: [
             {
-                url: "/images/fabdev800x600.png",
+                url: "https://fabdev.fr/images/fabdev800x600.png",
                 width: 800,
                 height: 600,
                 alt: "Fabdev",
             },
             {
-                url: "/images/fabdev1200x630.png",
+                url: "https://fabdev.fr/images/fabdev1200x630.png",
                 width: 1200,
                 height: 630,
                 alt: "Fabdev",
