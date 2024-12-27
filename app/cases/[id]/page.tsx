@@ -21,6 +21,7 @@ export default function Page({params}: { params: { id: number } }) {
         solution: string;
         outcomes: string;
         client: string;
+        nb_users: string;
         screenshot: string;
         services: string[];
         thumbnail: string;
@@ -127,7 +128,7 @@ export default function Page({params}: { params: { id: number } }) {
                         </div>
                         <div className="flex flex-col">
                             <div className="font-bold text-gray-500 dark:text-gray-300">Utilisateurs</div>
-                            <div className="">12</div>
+                            <div className="">{item.nb_users}</div>
                         </div>
                     </div>
                 </div>
@@ -144,9 +145,9 @@ export default function Page({params}: { params: { id: number } }) {
                     </div>
                     <div className="">
                         <h5 className="text-xl font-bold">Le Brief</h5>
-                        <div className="">{item.brief}</div>
+                        <div className="whitespace-pre-wrap">{item.brief}</div>
                         <h5 className="text-xl font-bold mt-4">Les solutions</h5>
-                        <div className="">{item.solution}</div>
+                        <div className="whitespace-pre-wrap">{item.solution}</div>
                         <h5 className="text-xl font-bold mt-4">Les retombées</h5>
                         <div className="mt-2">
                             {outcomes.map((outcome: string) => (
