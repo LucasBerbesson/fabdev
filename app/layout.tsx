@@ -45,9 +45,12 @@ export default async function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
+        <Head>
+            <script defer src="https://umami.fabdev.fr/script.js" data-website-id="74e87a8c-c273-48af-896b-1ad85f409b7c"></script>
+        </Head>
         <body className={inter.className}>
-            <Theme>
-                <div className="relative   dark:bg-grid-white/[0.15] bg-grid-black/[0.15]   ">
+        <Theme>
+            <div className="relative   dark:bg-grid-white/[0.15] bg-grid-black/[0.15]   ">
                     <div className="absolute pointer-events-none inset-0 dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_40%,black)]"></div>
                     <div className="relative">
                         <Nav></Nav>
