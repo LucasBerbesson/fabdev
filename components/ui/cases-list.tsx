@@ -44,23 +44,23 @@ export default function CasesList() {
             if (dataCases) {
                 setFiltered(dataCases)
                 setItems(dataCases)
-                sessionStorage.setItem("dataCases", JSON.stringify(dataCases))
+                localStorage.setItem("dataCases", JSON.stringify({
+                    data: dataCases,
+                    timestamp: Date.now()
+                }))
             }
         };
-        if (sessionStorage["dataCases"]) {
-            let MyData = sessionStorage.getItem("dataCases")
-            if (MyData) {
-                let dataCases: TypeItems;
-                const jsonData = JSON.parse(MyData)
-                dataCases = jsonData as TypeItems;
-                setFiltered(dataCases)
-                setItems(dataCases)
+        const cached = localStorage.getItem("dataCases")
+        if (cached) {
+            const { data, timestamp } = JSON.parse(cached)
+            const oneDay = 24 * 60 * 60 * 1000
+            if (Date.now() - timestamp < oneDay) {
+                setFiltered(data)
+                setItems(data)
+                return
             }
-
-        } else {
-            fetchData()
         }
-
+        fetchData()
     }, [])
 
     if (items) {
