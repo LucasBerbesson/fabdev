@@ -208,7 +208,7 @@ export default function Home() {
                         newProducts.push(
                             {
                                 title: item["title"],
-                                thumbnail: item["screenshot"],
+                                thumbnail: item["thumbnail"],
                                 link: `/cases/${item["id"]}?tag=`,
                                 services: item["services"]
                             }
