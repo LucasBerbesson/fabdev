@@ -134,13 +134,14 @@ export default function Page({params}: { params: { id: number } }) {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 my-6 gap-5">
                     <div className="px-6">
-                        <LazyLoadImage
-                            effect="black-and-white"
+                        <Image
                             src={item.screenshot}
-                            height="600"
-                            width="500"
+                            width={1000}
+                            height={1200}
+                            sizes="(max-width: 640px) 100vw, 50vw"
+                            quality={90}
                             className="rounded-xl object-cover w-full"
-                            alt="thumbnail"
+                            alt={item.title}
                         />
                     </div>
                     <div className="">

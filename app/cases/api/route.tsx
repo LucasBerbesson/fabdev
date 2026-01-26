@@ -1,12 +1,15 @@
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export async function GET() {
     const res = await fetch(`https://backoffice.fabdev.fr/api/cases/`, {
-        headers: {
-            'Content-Type': 'application/json',
-            'Cache-Control': 'no-cache',
-            'Pragma': 'no-cache',       // Additional no-cache directive
-        },
+        cache: 'no-store',
     })
     const data = await res.json()
 
-    return Response.json(data)
+    return Response.json(data, {
+        headers: {
+            'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        },
+    })
 }
