@@ -136,10 +136,9 @@ export default function Page({params}: { params: { id: number } }) {
                     <div className="px-6">
                         <Image
                             src={item.screenshot}
-                            width={1000}
-                            height={1200}
-                            sizes="(max-width: 640px) 100vw, 50vw"
-                            quality={90}
+                            width={1024}
+                            height={1024}
+                            unoptimized
                             className="rounded-xl object-cover w-full"
                             alt={item.title}
                         />
