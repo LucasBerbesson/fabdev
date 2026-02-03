@@ -7,7 +7,6 @@ import {XMarkIcon} from "@heroicons/react/24/outline";
 import nextConfig from "@/next.config.mjs"
 
 export default function Form() {
-    const budgetRef = useRef(null);
     const delaiRef = useRef(null);
     const hiddenRef = useRef(null);
     const [timer, setTimer] = useState(0);
@@ -94,21 +93,8 @@ export default function Form() {
                         <Label htmlFor="project">Décrivez votre projet en une ligne</Label>
                         <Input required id="project" placeholder="Un outil de gestion boosté à l'IA" type="text" name="project"/>
                     </LabelInputContainer>
-                    <LabelInputContainer className="mb-10">
-                        <Label htmlFor="budgets">Quel est le budget pour votre projet ?</Label>
-                        <div>
-                            <input className="inputLabel" id="0-10" type="radio" defaultValue="0-10" hidden name="budget" ref={budgetRef}/>
-                            <label htmlFor="0-10" className="mt-1  mx-1 inline-block p-2 px-3.5 rounded-3xl bg-neutral-200 dark:bg-neutral-800 hover:cursor-pointer">0-10k€</label>
-                            <input className="inputLabel" id="10-30" type="radio" defaultValue="10-30" hidden name="budget" ref={budgetRef}/>
-                            <label htmlFor="10-30" className="mt-1 mx-1 inline-block p-2 px-3.5 rounded-3xl bg-neutral-200 dark:bg-neutral-800 hover:cursor-pointer"> 10-30k€</label>
-                            <input className="inputLabel" id="30-80" type="radio" defaultValue="30-80" hidden name="budget" ref={budgetRef}/>
-                            <label htmlFor="30-80" className="mt-1 mx-1 inline-block p-2 px-3.5 rounded-3xl bg-neutral-200 dark:bg-neutral-800 hover:cursor-pointer">30-80k€</label>
-                            <input className="inputLabel" id="80-150" type="radio" defaultValue="80-150" hidden name="budget" ref={budgetRef}/>
-                            <label htmlFor="80-150" className="mt-1 mx-1 inline-block p-2 px-3.5 rounded-3xl bg-neutral-200 dark:bg-neutral-800 hover:cursor-pointer">80-150k€</label>
-                            <input className="inputLabel" id="150" type="radio" defaultValue="150" hidden name="budget" ref={budgetRef}/>
-                            <label htmlFor="150" className="mt-1 mx-1 inline-block p-2 px-3.5 rounded-3xl bg-neutral-200 dark:bg-neutral-800 hover:cursor-pointer">150k€+</label>
-                        </div>
-                    </LabelInputContainer>
+                    {/* Budget field hidden but still sent */}
+                    <input type="hidden" name="budget" value="non-renseigné" />
                     <LabelInputContainer className="mb-10">
                         <Label htmlFor="deadline">Quel est votre délai pour réaliser votre projet ?</Label>
                         <div>

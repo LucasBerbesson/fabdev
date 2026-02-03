@@ -239,7 +239,7 @@ export default function Home() {
                     Notre méthode de travail et notre expérience nous permettent de livrer des outils en moyenne 4 fois plus vite que nos concurrents (et accessoirement, à des prix
                     compétitifs...) <br/>
                     En <span className={"font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5"}>10 ans d&apos;existence</span>, nous avons
-                    développé <span className={"font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5"}>plus de 100 projets</span>.
+                    développé <span className={"font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5"}>plus de 200 projets</span>.
                 </p>
                 <Link href="/cases/" className="mt-12">
                     <Button

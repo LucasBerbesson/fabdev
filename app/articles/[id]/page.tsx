@@ -1,9 +1,7 @@
 "use client"
-import {useEffect, useState} from 'react';
-import {useTheme} from 'next-themes'
+import { useEffect, useState } from 'react';
 
-
-export default function Home({params}: { params: { id: number } }) {
+export default function Home({ params }: { params: { id: number } }) {
     interface Article {
         id: number;
         title: string;
@@ -17,7 +15,6 @@ export default function Home({params}: { params: { id: number } }) {
 
     const [iframeHeight, setIframeHeight] = useState('1200px');
     const [article, setArticle] = useState<Article | null>(null);
-    const {theme, setTheme} = useTheme()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -39,8 +36,6 @@ export default function Home({params}: { params: { id: number } }) {
 
     }, []);
 
-
-    // Gérer le rendu du JavaScript interne
     useEffect(() => {
         const handleResizeMessage = (event: MessageEvent) => {
             if (event.data.frameHeight) {
@@ -52,37 +47,76 @@ export default function Home({params}: { params: { id: number } }) {
         return () => window.removeEventListener('message', handleResizeMessage);
     }, []);
 
-    if (!article) return <div>Loading...</div>;
-    const bgColor = theme == "dark" ? "black" : "white"
-    const textColor = theme == "dark" ? "white" : "black"
+    if (!article) {
+        return (
+            <div className="pt-32 pb-20 flex items-center justify-center">
+                <div className="animate-pulse text-neutral-400">Chargement...</div>
+            </div>
+        );
+    }
+
     return (
-        <div className="pt-32 px-1 sm:px-24 pb-20">
-            <h1 className="text-3xl font-bold text-center my-4">{article.title}</h1>
-            <div className="text-center text-gray-800 dark:text-gray-300 mb-10">Par {article.author}</div>
-            <div className="bg-white dark:bg-black p-5 rounded-3xl">
-                <iframe
-                    srcDoc={`<script>
-                            document.addEventListener("DOMContentLoaded", function() {
-                            document.body.style.backgroundColor = "${bgColor}"
-                            document.body.style.color = "${textColor}"
-                            document.body.style.overflow = "hidden"
-                            setTimeout(function() {
-                                const height = document.body.scrollHeight;
-                                window.parent.postMessage({
-                                        frameHeight: height
-                                    }, "*");
-                                }, 100); // Adjust the delay time as needed, e.g., 2000 milliseconds
-                            });
-                         </script> 
-                         <script src="/plugin/jquery-3.6.1.min.js"></script>   
-                         <script src="/plugin/tabler.min.js"></script>
-                         <link rel="stylesheet" href="/plugin/tabler.min.css"> 
-                         ${article.content} ${article.content_js}`}
-                    width="100%"
-                    height={iframeHeight}
-                    sandbox="allow-scripts allow-same-origin"
-                    style={{overflow: "hidden"}}
-                ></iframe>
+        <div className="pt-32 pb-20">
+            <div className="mx-auto w-full max-w-3xl px-4 md:px-8">
+                {article.picture && (
+                    <img
+                        src={"https://backoffice.fabdev.fr" + article.picture}
+                        alt={article.title}
+                        className="h-60 w-full rounded-3xl object-cover md:h-[30rem]"
+                        height={720}
+                        width={1024}
+                    />
+                )}
+                <h1 className="mt-6 mb-2 text-2xl md:text-4xl font-bold tracking-tight text-white">
+                    {article.title}
+                </h1>
+                <div className="flex items-center">
+                    <div className="h-8 w-8 rounded-full bg-neutral-700 flex items-center justify-center text-sm font-medium text-white">
+                        {article.author.charAt(0).toUpperCase()}
+                    </div>
+                    <p className="pl-3 text-sm text-neutral-400">
+                        {article.author}
+                    </p>
+                </div>
+                {article.description && (
+                    <p className="mt-6 text-lg text-neutral-300">
+                        {article.description}
+                    </p>
+                )}
+                <div className="mt-10 rounded-2xl overflow-hidden">
+                    <iframe
+                        srcDoc={`
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function() {
+                                    document.body.style.backgroundColor = "black";
+                                    document.body.style.color = "white";
+                                    document.body.style.overflow = "hidden";
+                                    document.body.style.fontFamily = "system-ui, -apple-system, sans-serif";
+                                    setTimeout(function() {
+                                        const height = document.body.scrollHeight;
+                                        window.parent.postMessage({
+                                            frameHeight: height
+                                        }, "*");
+                                    }, 100);
+                                });
+                            </script>
+                            <script src="/plugin/jquery-3.6.1.min.js"></script>
+                            <script src="/plugin/tabler.min.js"></script>
+                            <link rel="stylesheet" href="/plugin/tabler.min.css">
+                            <style>
+                                body { line-height: 1.7; }
+                                img { border-radius: 12px; margin: 1rem 0; }
+                                a { color: #60a5fa; }
+                                h1, h2, h3, h4, h5, h6 { margin-top: 1.5rem; margin-bottom: 0.5rem; }
+                            </style>
+                            ${article.content} ${article.content_js}
+                        `}
+                        width="100%"
+                        height={iframeHeight}
+                        sandbox="allow-scripts allow-same-origin"
+                        style={{ overflow: "hidden", border: "none" }}
+                    ></iframe>
+                </div>
             </div>
         </div>
     );
