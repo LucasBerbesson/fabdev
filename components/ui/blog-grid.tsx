@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/utils/cn";
 
 export type Article = {
@@ -23,11 +24,12 @@ export function BlogCard({ article }: { article: Article }) {
             href={`/articles/${article.id}`}
         >
             {article.picture ? (
-                <img
+                <Image
                     src={"https://backoffice.fabdev.fr" + article.picture}
                     alt={article.title}
-                    height="800"
-                    width="800"
+                    height={800}
+                    width={800}
+                    unoptimized
                     className="h-52 w-full object-cover object-top"
                 />
             ) : (

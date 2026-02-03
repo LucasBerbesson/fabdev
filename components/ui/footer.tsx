@@ -6,6 +6,7 @@ import {
   IconMail,
 } from "@tabler/icons-react";
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 export default function Footer() {
@@ -102,10 +103,12 @@ const Logo = () => {
       href="/"
       className="relative z-20 flex items-center px-2 py-1"
     >
-      <img
+      <Image
         className="h-10 w-auto"
         src="/images/logo_white.png"
         alt="Fabdev"
+        width={120}
+        height={40}
       />
     </Link>
   );

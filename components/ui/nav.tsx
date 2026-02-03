@@ -3,6 +3,7 @@ import { cn } from "@/utils/cn";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
@@ -134,15 +135,19 @@ const Logo = () => {
       href="/"
       className="relative z-20 flex items-center px-2 py-1"
     >
-      <img
+      <Image
         className="h-10 w-auto hidden dark:block"
         src="/images/logo_white.png"
         alt="Fabdev"
+        width={120}
+        height={40}
       />
-      <img
+      <Image
         className="h-10 w-auto dark:hidden"
         src="/images/logo.png"
         alt="Fabdev"
+        width={120}
+        height={40}
       />
     </Link>
   );

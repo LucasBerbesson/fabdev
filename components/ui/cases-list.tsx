@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-cards";
 import { GlowingStarsBackgroundCard } from "@/components/ui/glowing-stars";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CasesList() {
     type ItemType = {
@@ -118,10 +119,11 @@ export default function CasesList() {
                                 <CardContainer className="inter-var w-full h-full">
                                     <CardBody className="relative group/card hover:shadow-2xl hover:shadow-emerald-500/[0.1] bg-black border-white/[0.2] w-full h-full rounded-xl p-6 border flex flex-col">
                                         <CardItem translateZ="100" className="w-full">
-                                            <img
+                                            <Image
                                                 src={cas.thumbnail}
                                                 height={600}
                                                 width={900}
+                                                unoptimized
                                                 className={`${isLargeCard ? "lg:h-72" : "h-48"} h-48 w-full object-cover rounded-xl group-hover/card:shadow-xl`}
                                                 alt={cas.title}
                                             />
