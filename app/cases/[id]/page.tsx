@@ -44,7 +44,7 @@ export default function Page({params}: { params: { id: number } }) {
             }
         };
         fetchData()
-    }, [])
+    }, [tag])
 
 
     const item = items.find((item: ItemType) => item.id == params.id);

@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function Home({ params }: { params: { id: number } }) {
     interface Article {
@@ -34,7 +35,7 @@ export default function Home({ params }: { params: { id: number } }) {
         };
         fetchData()
 
-    }, []);
+    }, [params.id]);
 
     useEffect(() => {
         const handleResizeMessage = (event: MessageEvent) => {
@@ -59,12 +60,13 @@ export default function Home({ params }: { params: { id: number } }) {
         <div className="pt-32 pb-20">
             <div className="mx-auto w-full max-w-3xl px-4 md:px-8">
                 {article.picture && (
-                    <img
+                    <Image
                         src={"https://backoffice.fabdev.fr" + article.picture}
                         alt={article.title}
                         className="h-60 w-full rounded-3xl object-cover md:h-[30rem]"
                         height={720}
                         width={1024}
+                        unoptimized
                     />
                 )}
                 <h1 className="mt-6 mb-2 text-2xl md:text-4xl font-bold tracking-tight text-white">

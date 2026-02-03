@@ -37,7 +37,7 @@ export default function Page() {
                         </h1>
 
                         <p className="!mb-6 max-w-xl text-center text-lg text-neutral-400 md:text-left">
-                            Découvrez nos ressources et conseils d'experts pour enrichir vos connaissances.
+                            Découvrez nos ressources et conseils d&apos;experts pour enrichir vos connaissances.
                         </p>
                     </div>
                 </div>
