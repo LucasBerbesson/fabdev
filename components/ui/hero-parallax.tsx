@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import {Button} from "@/components/ui/moving-border";
+import {LoaderFive} from "@/components/ui/loader";
 
 export const HeroParallax = ({
                                  products,
@@ -55,12 +56,19 @@ export const HeroParallax = ({
         useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
         springConfig
     );
+    const isLoading = products.length === 0;
+
     return (
         <div
             ref={ref}
             className=" overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] [height:3000px]"
         >
             <Header/>
+            {isLoading ? (
+                <div className="flex items-center justify-center py-40">
+                    <LoaderFive text="Chargement des projets..." />
+                </div>
+            ) : (
             <motion.div
                 style={{
                     rotateX,
@@ -98,6 +106,7 @@ export const HeroParallax = ({
                     ))}
                 </motion.div>
             </motion.div>
+            )}
         </div>
     );
 };

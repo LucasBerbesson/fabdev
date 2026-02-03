@@ -6,6 +6,7 @@ import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-cards";
 import { GlowingStarsBackgroundCard } from "@/components/ui/glowing-stars";
 import Link from "next/link";
 import Image from "next/image";
+import { LoaderFive } from "@/components/ui/loader";
 
 export default function CasesList() {
     type ItemType = {
@@ -83,6 +84,14 @@ export default function CasesList() {
             setFiltered(items)
         }
     }, [activeTag, items])
+
+    if (items.length === 0) {
+        return (
+            <div className="flex items-center justify-center py-40">
+                <LoaderFive text="Chargement des projets..." />
+            </div>
+        );
+    }
 
     return (
         <div className="pb-10">
