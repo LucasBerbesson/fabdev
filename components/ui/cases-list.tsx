@@ -102,10 +102,12 @@ export default function CasesList() {
             </div>
             <motion.div layout className="grid grid-cols-1 lg:grid-cols-6 text-white gap-5 sm:px-10">
                 <AnimatePresence>
-                    {filtered.map((cas, index) => (
+                    {filtered.map((cas, index) => {
+                        const isLargeCard = index % 8 == 6 || index % 8 == 7;
+                        return (
                         <React.Fragment key={cas.id}>
                             <motion.a
-                                className={`${index % 8 == 6 || index % 8 == 7 ? "lg:col-span-3" : "lg:col-span-2"} h-full`}
+                                className={`${isLargeCard ? "lg:col-span-3" : "lg:col-span-2"} h-full`}
                                 animate={{ opacity: 1 }}
                                 initial={{ opacity: 0 }}
                                 exit={{ opacity: 0 }}
@@ -120,7 +122,7 @@ export default function CasesList() {
                                                 src={cas.thumbnail}
                                                 height={600}
                                                 width={900}
-                                                className="h-48 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                                                className={`${isLargeCard ? "lg:h-72" : "h-48"} h-48 w-full object-cover rounded-xl group-hover/card:shadow-xl`}
                                                 alt={cas.title}
                                             />
                                         </CardItem>
@@ -168,7 +170,8 @@ export default function CasesList() {
                                 </GlowingStarsBackgroundCard>
                             </Link>
                         </React.Fragment>
-                    ))}
+                    )})}
+
                 </AnimatePresence>
             </motion.div>
         </div>

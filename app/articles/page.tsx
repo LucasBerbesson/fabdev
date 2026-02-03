@@ -1,20 +1,10 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import Image from 'next/image';
 import { Fondateurs } from "@/components/ui/fondateurs";
-import Link from "next/link";
+import { BlogCard, GridPatternContainer, Article } from "@/components/ui/blog-grid";
+import { cn } from "@/utils/cn";
 
 export default function Page() {
-    type Article = {
-        id: number;
-        title: string;
-        description: string;
-        content: string;
-        content_js: string;
-        author: string;
-        thumbnail: string;
-        picture: string;
-    }
     type ListArticle = Article[];
 
     const [articles, setArticles] = useState<ListArticle>([]);
@@ -34,45 +24,29 @@ export default function Page() {
         <div className="pt-32 pb-10 flex flex-col items-center overflow-x-hidden">
             <Fondateurs />
 
-            <div className="w-full max-w-3xl mx-auto px-4 md:px-8 mt-20">
-                <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-white">
-                    Quelques articles
-                </h2>
-
-                <div className="flex flex-col gap-8">
-                    {articles.map((article) => (
-                        <Link
-                            href={"/articles/" + article.id}
-                            key={article.id}
-                            className="group flex flex-col sm:flex-row gap-6 p-4 -mx-4 rounded-2xl transition-colors hover:bg-neutral-800/50"
+            <div className="relative overflow-hidden py-20 md:py-0 w-full mt-20">
+                <div className="relative overflow-hidden px-4 py-4 md:px-8 md:py-10">
+                    <GridPatternContainer className="opacity-50" />
+                    <div className="relative z-20 py-10 max-w-7xl mx-auto">
+                        <h1
+                            className={cn(
+                                "mb-6 scroll-m-20 text-center text-4xl font-bold tracking-tight text-white md:text-left",
+                            )}
                         >
-                            <div className="sm:w-48 sm:h-32 flex-shrink-0">
-                                <Image
-                                    src={"https://backoffice.fabdev.fr" + article.picture}
-                                    height={200}
-                                    width={300}
-                                    className="w-full h-48 sm:h-32 rounded-xl object-cover"
-                                    alt={article.title}
-                                />
-                            </div>
-                            <div className="flex flex-col justify-center">
-                                <div className="flex items-center mb-2">
-                                    <div className="h-5 w-5 rounded-full bg-neutral-700 flex items-center justify-center text-xs font-medium text-white">
-                                        {article.author.charAt(0).toUpperCase()}
-                                    </div>
-                                    <p className="pl-2 text-sm text-neutral-400">
-                                        {article.author}
-                                    </p>
-                                </div>
-                                <h3 className="text-xl font-bold text-white group-hover:text-neutral-200 transition-colors">
-                                    {article.title}
-                                </h3>
-                                <p className="mt-1 text-neutral-400 line-clamp-2">
-                                    {article.description}
-                                </p>
-                            </div>
-                        </Link>
-                    ))}
+                            Nos articles
+                        </h1>
+
+                        <p className="!mb-6 max-w-xl text-center text-lg text-neutral-400 md:text-left">
+                            Découvrez nos ressources et conseils d'experts pour enrichir vos connaissances.
+                        </p>
+                    </div>
+                </div>
+                <div className="mx-auto flex max-w-7xl flex-col items-center justify-between px-4 pb-20 md:px-8">
+                    <div className="relative z-20 grid w-full grid-cols-1 gap-10 md:grid-cols-3">
+                        {articles.map((article) => (
+                            <BlogCard article={article} key={article.id} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
