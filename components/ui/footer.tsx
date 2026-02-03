@@ -19,7 +19,7 @@ export default function Footer() {
   ];
 
   return (
-    <div className="relative w-full overflow-hidden border-t border-white/[0.1] bg-neutral-950 px-8 py-20">
+    <div className="relative w-full overflow-hidden border-t border-white/[0.1] bg-transparent px-8 py-20">
       <div className="mx-auto max-w-7xl items-start justify-between text-sm text-neutral-500 md:px-8">
         <div className="relative flex w-full flex-col items-center justify-center">
           <div className="mr-0 mb-4 md:mr-4 md:flex">

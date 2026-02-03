@@ -9,75 +9,10 @@ import React, {useEffect, useState} from "react";
 import Link from "next/link"; // Modify the import path accordingly
 import {LampContainer} from "@/components/ui/lamp"; // Modify the import path accordingly
 import {motion} from "framer-motion";
+import {LogoCloudMarquee} from "@/components/ui/logo-cloud-marquee";
 
 import {cn} from "@/utils/cn";
 
-const clients = [
-    {
-        link: "/partenaires/sncf.png",
-        name: "SNCF",
-    },
-    {
-        link: "/partenaires/engie.png",
-        name: "Engie",
-    },
-    {
-        link: "/partenaires/fiehl.png",
-        name: "Diehl",
-    },
-    {
-        link: "/partenaires/rte.png",
-        name: "RTE",
-    },
-    {
-        link: "/partenaires/cfj.png",
-        name: "CFJ",
-    },
-    {
-        link: "/partenaires/valeo.png",
-        name: "Valeo",
-    },
-    {
-        link: "/partenaires/air-france.png",
-        name: "Air-France",
-    },
-    {
-        link: "/partenaires/atlantic.png",
-        name: "Atlantic",
-    },
-    {
-        link: "/partenaires/oreal.png",
-        name: "L'Oréal",
-    },
-    {
-        link: "/partenaires/alogia.png",
-        name: "Alogia",
-    },
-    {
-        link: "/partenaires/established.png",
-        name: "Established inc",
-    },
-    {
-        link: "/partenaires/cooperation_agricole.png",
-        name: "La cooperation agricole",
-    },
-    {
-        link: "/partenaires/culture.png",
-        name: "Ministère de la culture",
-    },
-    {
-        link: "/partenaires/olympics.png",
-        name: "Jeux olympiques",
-    },
-    {
-        link: "/partenaires/agn.png",
-        name: "AGN",
-    },
-    {
-        link: "/partenaires/ami.png",
-        name: "Ami Paris",
-    },
-];
 const cardsData = [
     {
         title: 'Dynamiques, serviables, et avant tout grandement compétents, les qualificatifs se bousculent à l\'évocation de FabDev',
@@ -189,7 +124,7 @@ const Card: React.FC<CardProps> = ({title, content, nom, role, image}) => {
 
 
 export default function Home() {
-    type ItemType = { title: string, link: string, thumbnail: string, services: [string] }
+    type ItemType = { title: string, link: string, thumbnail: string, services: [string], subtitle: string }
     type TypeItems = ItemType[];
     const [products, setProducts] = useState<TypeItems>([]);
     let allServices = new Set<string>();
@@ -210,7 +145,8 @@ export default function Home() {
                                 title: item["title"],
                                 thumbnail: item["thumbnail"],
                                 link: `/cases/${item["id"]}?tag=`,
-                                services: item["services"]
+                                services: item["services"],
+                                subtitle: item["subtitle"]
                             }
                         )
                     }
@@ -250,24 +186,12 @@ export default function Home() {
                 </Link>
             </div>
             <div className="flex flex-col justify-items-center items-center">
+                <LogoCloudMarquee />
                 <Fondateurs></Fondateurs>
-                <div className="text-5xl font-bold mb-20 mt-48 mx-4 text-center">Témoignages de nos clients</div>
-                <div className="grid grid-cols-1 sm:grid-cols-2  gap-12 mx-4 sm:mx-16 mb-10 max-w-screen-xl">
+                <h2 className="bg-gradient-to-b from-white to-neutral-600 bg-clip-text text-center font-sans text-2xl font-bold text-transparent md:text-5xl mb-20 mt-40 mx-4">Témoignages de nos clients</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2  gap-12 mx-4 sm:mx-16 mb-32 max-w-screen-xl">
                     {cardsData.map((card, index) => (
                         <Card key={index} title={card.title} content={card.content} nom={card.nom} role={card.role} image={card.image}/>
-                    ))}
-                </div>
-                <div className="grid grid-cols-2 lg:grid-cols-8 max-w-screen-2xl mx-auto my-20 lg:mb-20">
-                    {clients.map((client, index) => (
-                        <div className={"text-center"} key={index}>
-                            <Image
-                                src={client.link}
-                                height="100"
-                                width="200"
-                                className="mx-auto filter grayscale  brightness-0 invert transition-all"
-                                alt="thumbnail"
-                            />
-                        </div>
                     ))}
                 </div>
             </div>

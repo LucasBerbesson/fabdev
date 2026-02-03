@@ -58,8 +58,8 @@ export default async function RootLayout({
                 <div className="relative">
                     <Nav></Nav>
                     {children}
+                    <Footer />
                 </div>
-<Footer />
             </div>
         </Theme>
         </body>

@@ -7,8 +7,8 @@ import Image from "next/image";
 
 export function Fondateurs({}: {}) {
     return (
-        <div className="flex flex-col justify-items-center items-center">
-            <div className="text-5xl font-bold mb-20 ">Les fondateurs</div>
+        <div className="flex flex-col justify-items-center items-center mt-20 md:mt-32">
+            <h2 className="bg-gradient-to-b from-white to-neutral-600 bg-clip-text text-center font-sans text-2xl font-bold text-transparent md:text-5xl mb-20">Les fondateurs</h2>
             <div className="flex flex-col md:flex-row">
                 <CardContainer className="w-11/12 h-full mb-8 rounded-3xl">
                     <CardBody className="bg-gray-50 dark:bg-black p-10 group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] rounded-xl ">

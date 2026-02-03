@@ -18,6 +18,7 @@ export const HeroParallax = ({
         title: string;
         link: string;
         thumbnail: string;
+        subtitle?: string;
     }[];
 }) => {
     const firstRow = products.slice(0, 5);
@@ -105,7 +106,7 @@ export const Header = () => {
     return (
         <div className="max-w-7xl  relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0 z-50">
             <h1 className="text-4xl sm:text-2xl md:text-7xl font-bold dark:text-white">
-                L&apos;outil métier qui vous manque — celui qui coûte trop cher, ou celui qui n&apos;existe pas encore.
+              On développe des logiciels métiers, avec de l'intelligence — artificielle et humaine.
             </h1>
             <p className="max-w-3xl text-lg md:text-xl mt-8 mb-5 dark:text-neutral-200">
                 Depuis plus de 10 ans, FabDev conçoit des solutions sur-mesure — plus de 200 projets livrés, du remplacement d&apos;ERP au logiciel qui n&apos;existait nulle part. API, agents IA, algorithmes, automatisation. Avec ou sans IA, chaque projet est un nouveau défi technique — et c&apos;est exactement pour ça qu&apos;on est là.
@@ -132,6 +133,7 @@ export const ProductCard = ({
         title: string;
         link: string;
         thumbnail: string;
+        subtitle?: string;
     };
     translate: MotionValue<number>;
 }) => {
@@ -144,25 +146,32 @@ export const ProductCard = ({
                 y: -20,
             }}
             key={product.title}
-            className="group/product h-96 w-[30rem] relative flex-shrink-0"
+            className="group/product h-96 w-[30rem] relative flex-shrink-0 rounded-xl overflow-hidden"
         >
             <Link
                 href={product.link}
-                className="block group-hover/product:shadow-2xl "
+                className="block group-hover/product:shadow-2xl h-full"
             >
                 <Image
                     src={product.thumbnail}
                     height="600"
                     width="600"
-                    className="object-cover object-left-top absolute h-full w-full inset-0"
+                    className="object-cover object-left-top absolute h-full w-full inset-0 transition-transform duration-300 group-hover/product:scale-105"
                     alt={product.title}
                 />
             </Link>
 
-            <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black dark:bg-gray-200 dark:group-hover/product:opacity-80  pointer-events-none"></div>
-            <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white dark:text-black font-weight-bold">
-                {product.title}
-            </h2>
+            <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-90 bg-gradient-to-t from-black via-black/70 to-transparent transition-opacity duration-300 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 right-0 p-6 opacity-0 group-hover/product:opacity-100 transition-all duration-300 translate-y-4 group-hover/product:translate-y-0">
+                <h2 className="text-white text-xl font-bold mb-2">
+                    {product.title}
+                </h2>
+                {product.subtitle && (
+                    <p className="text-neutral-300 text-sm line-clamp-2">
+                        {product.subtitle}
+                    </p>
+                )}
+            </div>
         </motion.div>
     );
 };
