@@ -3,14 +3,15 @@ import {Inter} from "next/font/google";
 import "@/app/globals.css";
 import Theme from '@/components/ui/theme-provider'
 import React from "react";
-import {usePathname} from 'next/navigation'
 import Nav from "@/components/ui/nav"
 import Footer from "@/components/ui/footer";
 import Script from "next/script";
-import nextConfig from "@/next.config.mjs"
-import Head from "next/head";
 
-const inter = Inter({subsets: ["latin"]});
+const inter = Inter({
+    subsets: ["latin"],
+    display: "swap",
+    preload: true,
+});
 
 export const metadata: Metadata = {
     title: "Fabdev",
@@ -45,7 +46,11 @@ export default async function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
+        <html lang="fr" suppressHydrationWarning className="overflow-x-hidden">
+        <head>
+            <link rel="preconnect" href="https://backoffice.fabdev.fr" />
+            <link rel="dns-prefetch" href="https://backoffice.fabdev.fr" />
+        </head>
         <body className={inter.className}>
         <Script
             src="https://umami.fabdev.fr/script.js"

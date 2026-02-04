@@ -57,10 +57,10 @@ const DesktopNav = ({ navItems }: { navItems: { name: string; link: string; curr
         ))}
       </div>
       <Link
-        href="/contact"
+        href="https://calendar.app.google/v2eEm8hmweiZMTpo7"
         className="rounded-full bg-black px-6 py-2 text-sm font-medium text-white shadow-[0px_-2px_0px_0px_rgba(255,255,255,0.4)_inset] transition-colors hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
       >
-        Contactez-nous
+        Prendre rendez-vous
       </Link>
     </motion.div>
   );

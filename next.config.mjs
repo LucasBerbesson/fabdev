@@ -1,8 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-// image from fabdev.fr
     images: {
-        domains: ['backoffice.fabdev.fr'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'backoffice.fabdev.fr',
+            },
+        ],
+        formats: ['image/avif', 'image/webp'],
+    },
+    experimental: {
+        optimizeCss: true,
     },
 };
 

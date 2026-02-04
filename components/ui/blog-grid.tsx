@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/utils/cn";
+import { generateSlug } from "@/utils/slug";
 
 export type Article = {
     id: number;
@@ -14,6 +15,13 @@ export type Article = {
     picture: string;
 };
 
+/**
+ * Génère le slug pour un article à partir de son titre
+ */
+export function getArticleSlug(article: Article): string {
+    return generateSlug(article.title);
+}
+
 export function BlogCard({ article }: { article: Article }) {
     const truncate = (text: string, length: number) => {
         return text.length > length ? text.slice(0, length) + "..." : text;
@@ -21,7 +29,7 @@ export function BlogCard({ article }: { article: Article }) {
     return (
         <Link
             className="shadow-derek w-full overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900 transition duration-200 hover:scale-[1.02]"
-            href={`/articles/${article.id}`}
+            href={`/articles/${getArticleSlug(article)}`}
         >
             {article.picture ? (
                 <Image

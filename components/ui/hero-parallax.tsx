@@ -167,6 +167,8 @@ export const ProductCard = ({
                     width="600"
                     className="object-cover object-left-top absolute h-full w-full inset-0 transition-transform duration-300 group-hover/product:scale-105"
                     alt={product.title}
+                    loading="eager"
+                    sizes="(max-width: 768px) 100vw, 30rem"
                 />
             </Link>
 
