@@ -103,7 +103,7 @@ export function Fondateurs({}: {}) {
                                     translateZ="40"
                                     className="text-sm max-w-sm dark:text-neutral-300 mt-3"
                                 >
-                                    Diplômé de CentraleSupélec, Lucas code depuis plus de 15 ans. Il a participé au développement de plus de 90 plateformes, algorithmes, scripts et outils pour des
+                                    Diplômé de CentraleSupélec, Lucas code depuis plus de 15 ans. Il a participé au développement de plus de 200 plateformes, algorithmes, scripts et outils pour des
                                     Grands Groupes, des PME et des startups de tous secteurs. Il aime transformer les problèmes complexes en solutions simples.
                                 </CardItem>
                             </div>
