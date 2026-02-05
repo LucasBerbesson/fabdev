@@ -77,22 +77,22 @@ export default async function Home() {
             <HeroParallax products={products} />
             <div className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0 text-center mb-40">
                 <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-50 dark:to-neutral-400 from-neutral-500 to-neutral-700 bg-opacity-50">
-                    On peut tout faire <br /> vite et bien.
+                    Vous louez un logiciel.
+                    <br /> Et si vous deveniez propriétaire ?
                 </h1>
                 <p className="mt-4 mb-12 text-xl dark:text-neutral-300 text-neutral-700 max-w-2xl text-center mx-auto">
-                    Notre méthode de travail et notre expérience nous permettent
-                    de livrer des outils en moyenne 4 fois plus vite que nos
-                    concurrents (et accessoirement, à des prix compétitifs...)
-                    <br />
-                    En{" "}
+                    La plupart de nos clients payaient une licence pour un outil
+                    qu&apos;ils n&apos;utilisaient qu&apos;à 2%. On l&apos;a
+                    remplacé par un{" "}
                     <span className="font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5">
-                        10 ans d&apos;existence
+                        logiciel sur-mesure
                     </span>
-                    , nous avons développé{" "}
+                    , pensé pour leur métier —{" "}
                     <span className="font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5">
-                        plus de 200 projets
+                        amorti en un an de licence
                     </span>
-                    .
+                    . 200+ projets livrés, en moyenne 4× plus vite que le
+                    marché.
                 </p>
                 <Link href="/cases/" className="mt-12">
                     <Button
